@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>East Texas Tavern</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Avenir, Helvetica, Arial, sans-serif;
+    }
+    body {
+      background: #f5f5f5; /* Off-white */
+      color: #333;
+      overflow-x: hidden;
+    }
+    /* Sticky Navigation */
+    .nav {
+      position: sticky;
+      top: 0;
+      background: #3c2f2f; /* Dark wood brown */
+      padding: 15px 0;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+      z-index: 10;
+    }
+    .nav .container {
+      max-width: 1000px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .nav a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 1.2rem;
+      margin: 0 20px;
+      transition: color 0.3s;
+    }
+    .nav a:hover {
+      color: #ff8c00; /* Amber */
+    }
+    /* Parallax Hero */
+    .hero {
+      height: 100vh;
+      background: url('https://images.pexels.com/photos/1267696/pexels-photo-1267696.jpeg?auto=compress&cs=tinysrgb&w=1200') center/cover fixed;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: #fff;
+      position: relative;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5); /* Dark overlay */
+    }
+    .hero-content {
+      position: relative;
+      z-index: 1;
+    }
+    .hero h1 {
+      font-size: 3rem;
+      margin-bottom: 15px;
+    }
+    .hero p {
+      font-size: 1.3rem;
+      margin-bottom: 20px;
+    }
+    .cta {
+      padding: 12px 30px;
+      background: #ff8c00;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 25px;
+      font-weight: bold;
+      transition: background 0.3s, transform 0.3s;
+    }
+    .cta:hover {
+      background: #e07b00;
+      transform: scale(1.1);
+    }
+    /* Tabbed Menu Section */
+    .menu {
+      max-width: 1000px;
+      margin: 40px auto;
+      padding: 20px;
+    }
+    .menu h2 {
+      font-size: 2.2rem;
+      text-align: center;
+      margin-bottom: 20px;
+      color: #3c2f2f;
+    }
+    .tab-nav {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+    .tab-nav button {
+      padding: 10px 20px;
+      margin: 0 5px;
+      background: #f5f5f5;
+      border: 2px solid #3c2f2f;
+      color: #3c2f2f;
+      cursor: pointer;
+      font-size: 1rem;
+      transition: background 0.3s, color 0.3s;
+    }
+    .tab-nav button.active {
+      background: #3c2f2f;
+      color: #fff;
+    }
+    .tab-nav button:hover {
+      background: #ff8c00;
+      color: #fff;
+    }
+    .tab-content {
+      display: none;
+      background: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
+    }
+    .tab-content.active {
+      display: block;
+    }
+    .tab-content img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 10px;
+      margin-bottom: 15px;
+    }
+    .tab-content h3 {
+      font-size: 1.5rem;
+      margin-bottom: 10px;
+      color: #3c2f2f;
+    }
+    .tab-content p {
+      font-size: 1rem;
+      color: #666;
+    }
+    /* Event Schedule Marquee */
+    .events {
+      background: #3c2f2f;
+      color: #fff;
+      padding: 20px;
+      overflow: hidden;
+    }
+    .events h2 {
+      font-size: 2.2rem;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    .marquee {
+      white-space: nowrap;
+      overflow: hidden;
+    }
+    .marquee span {
+      display: inline-block;
+      padding-left: 100%;
+      animation: marquee 15s linear infinite;
+    }
+    @keyframes marquee {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-100%); }
+    }
+    /* Fixed Social Media Footer */
+    .social-footer {
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      background: #ff8c00;
+      padding: 10px;
+      text-align: center;
+      z-index: 10;
+    }
+    .social-footer a {
+      color: #fff;
+      margin: 0 15px;
+      font-size: 1.2rem;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+    .social-footer a:hover {
+      color: #3c2f2f;
+    }
+    /* Footer */
+    footer {
+      background: #3c2f2f;
+      color: #fff;
+      text-align: center;
+      padding: 60px 20px 20px;
+      font-size: 0.9rem;
+    }
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .hero h1 {
+        font-size: 2rem;
+      }
+      .hero p {
+        font-size: 1rem;
+      }
+      .nav .container {
+        flex-direction: column;
+      }
+      .nav a {
+        margin: 10px 0;
+      }
+      .tab-nav {
+        flex-direction: column;
+      }
+      .tab-nav button {
+        margin: 5px 0;
+      }
+      .tab-content img {
+        height: 150px;
+      }
+    }
+  </style>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // Tabbed Menu Logic
+      const tabs = document.querySelectorAll('.tab-nav button');
+      const contents = document.querySelectorAll('.tab-content');
+      tabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+          tabs.forEach(t => t.classList.remove('active'));
+          contents.forEach(c => c.classList.remove('active'));
+          tab.classList.add('active');
+          document.getElementById(tab.dataset.tab).classList.add('active');
+        });
+      });
+    });
+  </script>
+</head>
+<body>
+  <nav class="nav">
+    <div class="container">
+      <a href="#home">Home</a>
+      <a href="#menu">Menu</a>
+      <a href="#events">Events</a>
+    </div>
+  </nav>
+  <section class="hero" id="home">
+    <div class="hero-content">
+      <h1>East Texas Tavern</h1>
+      <p>Craft beers, live music, and good times in Tyler, TX.</p>
+      <a href="#menu" class="cta">Explore Our Menu</a>
+    </div>
+  </section>
+  <section class="menu" id="menu">
+    <h2>Our Offerings</h2>
+    <div class="tab-nav">
+      <button data-tab="drinks" class="active">Drinks</button>
+      <button data-tab="food">Food</button>
+      <button data-tab="events">Events</button>
+    </div>
+    <div id="drinks" class="tab-content active">
+      <img src="https://images.pexels.com/photos/2396220/pexels-photo-2396220.jpeg?auto=compress&cs=tinysrgb&w=500" alt="Craft Beers">
+      <h3>Craft Beers</h3>
+      <p>Locally brewed IPAs, stouts, and lagers on tap.</p>
+    </div>
+    <div id="food" class="tab-content">
+      <img src="https://images.pexels.com/photos/2983101/pexels-photo-2983101.jpeg?auto=compress&cs=tinysrgb&w=500" alt="Bar Food">
+      <h3>Bar Bites</h3>
+      <p>Wings, sliders, and nachos crafted for sharing.</p>
+    </div>
+    <div id="events" class="tab-content">
+      <img src="https://images.pexels.com/photos/1679826/pexels-photo-1679826.jpeg?auto=compress&cs=tinysrgb&w=500" alt="Live Music">
+      <h3>Live Music</h3>
+      <p>Weekly performances by local Tyler bands.</p>
+    </div>
+  </section>
+  <section class="events" id="events">
+    <h2>Upcoming Events</h2>
+    <div class="marquee">
+      <span>Live Music: The Texas Ramblers - Oct 10 @ 8PM | Open Mic Night - Oct 12 @ 7PM | Beer Tasting - Oct 15 @ 6PM</span>
+    </div>
+  </section>
+  <div class="social-footer">
+    <a href="#">Facebook</a>
+    <a href="#">Instagram</a>
+    <a href="#">Twitter</a>
+  </div>
+  <footer>
+    <p>&copy; 2025 East Texas Tavern, Tyler, TX</p>
+  </footer>
+</body>
+</html>

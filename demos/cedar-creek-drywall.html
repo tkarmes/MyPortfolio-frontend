@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cedar Creek Drywall Pros</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Avenir, Helvetica, Arial, sans-serif;
+    }
+    body {
+      background: url('https://images.pexels.com/photos/259588/pexels-photo-259588.jpeg?auto=compress&cs=tinysrgb&w=1200') center/cover fixed; /* Lakefront image */
+      background-color: #f0f0f0; /* Fallback: soft gray */
+      background-blend-mode: lighten; /* Light overlay for subtlety */
+    }
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: rgba(51, 51, 51, 0.9);
+      padding: 15px 20px;
+      z-index: 10;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+      text-align: center;
+    }
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      margin: 0 20px;
+      font-size: 1.1rem;
+      font-weight: bold;
+      text-transform: uppercase;
+      transition: color 0.3s;
+    }
+    nav a:hover {
+      color: #007bff;
+    }
+    .hero {
+      height: 400px;
+      background: url('https://images.pexels.com/photos/533157/pexels-photo-533157.jpeg?auto=compress&cs=tinysrgb&w=1200&h=800') center/cover no-repeat; /* Lake house image */
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      color: #fff;
+      text-shadow: 0 2px 5px rgba(0, 0, 0, 0.7);
+      margin-top: 60px;
+      background-color: rgba(0, 0, 0, 0.5); /* Dark overlay */
+      background-blend-mode: darken;
+    }
+    .hero h1 {
+      font-size: 2.8rem;
+      margin-bottom: 10px;
+    }
+    .hero p {
+      font-size: 1.2rem;
+      margin-bottom: 20px;
+      max-width: 600px;
+    }
+    .cta {
+      padding: 12px 30px;
+      background: #007bff;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 5px;
+      font-weight: bold;
+      transition: transform 0.3s, background 0.3s;
+    }
+    .cta:hover {
+      background: #0056b3;
+      transform: scale(1.1);
+    }
+    .services {
+      max-width: 900px;
+      margin: 30px auto;
+      padding: 20px;
+      background: rgba(255, 255, 255, 0.95);
+      border-radius: 10px;
+    }
+    .services h2 {
+      font-size: 2rem;
+      margin-bottom: 20px;
+      color: #333;
+    }
+    .service-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+    }
+    .service-item {
+      background: #fff;
+      padding: 15px;
+      border-radius: 8px;
+      box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .service-item:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    }
+    .service-item img {
+      width: 100%;
+      height: 120px;
+      object-fit: cover;
+      border-radius: 5px;
+    }
+    .service-item h3 {
+      font-size: 1.1rem;
+      color: #333;
+      margin: 10px 0;
+    }
+    .service-item p {
+      font-size: 0.9rem;
+      color: #666;
+    }
+    .contact {
+      max-width: 900px;
+      margin: 30px auto;
+      padding: 20px;
+      background: rgba(255, 255, 255, 0.95);
+      border-radius: 10px;
+      text-align: center;
+    }
+    .contact h2 {
+      font-size: 2rem;
+      margin-bottom: 15px;
+      color: #333;
+    }
+    .contact p {
+      font-size: 1rem;
+      color: #666;
+      margin-bottom: 20px;
+    }
+    footer {
+      background: rgba(240, 240, 240, 0.95);
+      padding: 20px;
+      text-align: center;
+      color: #555;
+      font-size: 0.9rem;
+    }
+    @media (max-width: 768px) {
+      .hero h1 { font-size: 2rem; }
+      .hero p { font-size: 1rem; }
+      nav a { margin: 0 10px; font-size: 1rem; }
+      .services h2, .contact h2 { font-size: 1.8rem; }
+      .service-item img { height: 100px; }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#services">Services</a>
+    <a href="#contact">Contact</a>
+  </nav>
+  <section class="hero" id="home">
+    <h1>Cedar Creek Drywall Pros</h1>
+    <p>Top-notch sheetrock services for lake homes around Cedar Creek Lake, TX.</p>
+    <a href="#contact" class="cta">Get a Quote</a>
+  </section>
+  <section class="services" id="services">
+    <h2>Our Services</h2>
+    <div class="service-grid">
+      <div class="service-item">
+        <img src="https://images.pexels.com/photos/1571460/pexels-photo-1571460.jpeg?auto=compress&cs=tinysrgb&w=500" alt="Sheetrock Installation">
+        <h3>Installation</h3>
+        <p>Moisture-resistant drywall for new lakefront builds.</p>
+      </div>
+      <div class="service-item">
+        <img src="https://images.pexels.com/photos/159306/construction-site-build-construction-work-159306.jpeg?auto=compress&cs=tinysrgb&w=500" alt="Sheetrock Repairs">
+        <h3>Repairs</h3>
+        <p>Fast fixes for cracks and water damage.</p>
+      </div>
+      <div class="service-item">
+        <img src="https://images.pexels.com/photos/271816/pexels-photo-271816.jpeg?auto=compress&cs=tinysrgb&w=500" alt="Sheetrock Finishing">
+        <h3>Finishing</h3>
+        <p>Smooth textures and flawless mudding.</p>
+      </div>
+    </div>
+  </section>
+  <section class="contact" id="contact">
+    <h2>Contact Us</h2>
+    <p>Need sheetrock work? Reach out for a free estimate.</p>
+    <a href="mailto:info@cedarcreekdrywall.com" class="cta">Email Us</a>
+  </section>
+  <footer>
+    <p>You want it. I build it. &copy; 2025 Travis K Armes, Serving Cedar Creek Lake</p>
+  </footer>
+</body>
+</html>

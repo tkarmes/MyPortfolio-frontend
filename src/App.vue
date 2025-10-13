@@ -7,11 +7,11 @@
 <style>
 /* Global CSS Variables */
 :root {
-  --background: #1A1A1A; /* Dark gray */
-  --text: #FFFFFF; /* White */
-  --primary: #0A84FF; /* Light blue */
-  --secondary: #FFD700; /* Gold yellow */
-  --accent: #0052D4; /* Darker blue for hover */
+  --background: #2F4F2F; /* Dark olive green for an earthy base */
+  --text: #F5F5DC; /* Beige for a natural text color */
+  --primary: #6B8E23; /* Olive drab for highlights */
+  --secondary: #DAA520; /* Goldenrod for a warm, forest glow */
+  --accent: #556B2F; /* Dark olive green for depth */
 }
 
 html, body, #app {

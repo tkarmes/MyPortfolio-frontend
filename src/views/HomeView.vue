@@ -12,264 +12,263 @@
       </nav>
     </header>
 
-    <!-- Hero Section -->
-    <section class="hero" id="home">
-      <div class="hero-content">
-        <h1>You Want It. I Build It.</h1>
-        <p>Custom, responsive websites tailored for your business—built to grow your brand.</p>
-        <button @click="openContactModal" class="cta">Get a Free Quote</button>
-      </div>
-    </section>
-
-    <!-- About/Services Section -->
-    <section class="about" id="about">
-      <div class="container">
-        <h2>What I Build</h2>
-        <p class="about-intro">I craft clean, user-friendly websites for businesses.</p>
-        <div class="services-carousel">
-          <div class="services-track">
-            <!-- Original cards -->
-            <div class="service-card">
-              <h3>Responsive Websites</h3>
-              <p>Sites that look great on any device, from phones to desktops.</p>
-            </div>
-            <div class="service-card">
-              <h3>Landing Pages</h3>
-              <p>High-converting pages designed to drive customer action.</p>
-            </div>
-            <div class="service-card">
-              <h3>SEO-Friendly Designs</h3>
-              <p>Optimized to rank higher and attract clients.</p>
-            </div>
-            <!-- Cloned cards -->
-            <div class="service-card">
-              <h3>Responsive Websites</h3>
-              <p>Sites that look great on any device, from phones to desktops.</p>
-            </div>
-            <div class="service-card">
-              <h3>Landing Pages</h3>
-              <p>High-converting pages designed to drive customer action.</p>
-            </div>
-            <div class="service-card">
-              <h3>SEO-Friendly Designs</h3>
-              <p>Optimized to rank higher and attract clients.</p>
-            </div>
-          </div>
-          <button class="carousel-btn service-prev-btn">←</button>
-          <button class="carousel-btn service-next-btn">→</button>
-        </div>
-      </div>
-    </section>
-
-    <!-- Portfolio Section -->
-    <section class="portfolio" id="portfolio">
-      <div class="container">
-        <h2>My Work</h2>
-        <p class="portfolio-intro">Click the arrows to explore my business websites.</p>
-        <div class="carousel">
-          <div class="carousel-track">
-            <!-- Original projects -->
-            <article class="project">
-              <img :src="images.tylerFurniture" alt="Furniture Co. Website Mockup" class="project-image" @error="handleImageError" />
-              <div class="project-content">
-                <h3>Furniture Co.</h3>
-                <p>A bold, responsive website for a furniture store, featuring a modern hero, product grid, and sticky navigation for a premium user experience.</p>
-                <button @click="openImageModal(images.tylerFurniture)" class="project-link">View Details</button>
-              </div>
-            </article>
-            <article class="project">
-              <img :src="images.cedarCreekDrywall" alt="Drywall Website Mockup" class="project-image" @error="handleImageError" />
-              <div class="project-content">
-                <h3>Drywall</h3>
-                <p>A rugged, responsive site for a sheetrock contractor, with fixed nav tabs, a drywall texture background, and real construction images.</p>
-                <button @click="openImageModal(images.cedarCreekDrywall)" class="project-link">View Details</button>
-              </div>
-            </article>
-            <article class="project">
-              <img :src="images.cedarCreekDrywall2" alt="Drywall Website Mockup" class="project-image" @error="handleImageError" />
-              <div class="project-content">
-                <h3>Drywall</h3>
-                <p>A fresh take on the sheetrock contractor site, with a unique layout and enhanced visuals for clients.</p>
-                <button @click="openImageModal(images.cedarCreekDrywall2)" class="project-link">View Details</button>
-              </div>
-            </article>
-            <article class="project">
-              <img :src="images.martinezBrosIrrigation" alt="Irrigation Website Mockup" class="project-image" @error="handleImageError" />
-              <div class="project-content">
-                <h3>Irrigation</h3>
-                <p>A responsive website for an irrigation company, featuring a fixed top navigation, lush lawn imagery, and a clean service grid for showcasing sprinkler and lawn care services.</p>
-                <button @click="openImageModal(images.martinezBrosIrrigation)" class="project-link">View Details</button>
-              </div>
-            </article>
-            <article class="project">
-              <img :src="images.martinezBrosIrrigation2" alt="Irrigation Website Mockup" class="project-image" @error="handleImageError" />
-              <div class="project-content">
-                <h3>Irrigation</h3>
-                <p>A unique take on the irrigation site with a bottom navigation bar, circular service cards, and a diagonal section tilt, showcasing a modern, dynamic layout.</p>
-                <button @click="openImageModal(images.martinezBrosIrrigation2)" class="project-link">View Details</button>
-              </div>
-            </article>
-            <article class="project">
-              <img :src="images.lakeviewCoffee" alt="Coffee Co. Website Mockup" class="project-image" @error="handleImageError" />
-              <div class="project-content">
-                <h3>Coffee Co.</h3>
-                <p>A vibrant website for a coffee shop, featuring a full-screen overlay menu with animated links, a split-screen hero with a large cozy coffee shop image, and a carousel slider for the menu.</p>
-                <button @click="openImageModal(images.lakeviewCoffee)" class="project-link">View Details</button>
-              </div>
-            </article>
-            <article class="project">
-              <img :src="images.lakeviewCoffee2" alt="Coffee Co. Website Mockup" class="project-image" @error="handleImageError" />
-              <div class="project-content">
-                <h3>Coffee Co.</h3>
-                <p>A dynamic take on the coffee shop site, emphasizing the split-screen hero with right-aligned text and a carousel showcasing artisanal coffee and pastries.</p>
-                <button @click="openImageModal(images.lakeviewCoffee2)" class="project-link">View Details</button>
-              </div>
-            </article>
-            <article class="project">
-              <img :src="images.lakeviewCoffee3" alt="Coffee Co. Website Mockup" class="project-image" @error="handleImageError" />
-              <div class="project-content">
-                <h3>Coffee Co.</h3>
-                <p>A fresh iteration of the coffee shop website, highlighting a fixed contact bar and a cozy aesthetic with a prominent background image.</p>
-                <button @click="openImageModal(images.lakeviewCoffee3)" class="project-link">View Details</button>
-              </div>
-            </article>
-            <article class="project">
-              <img :src="images.eastTexasTavern" alt="Tavern Website Mockup" class="project-image" @error="handleImageError" />
-              <div class="project-content">
-                <h3>Tavern</h3>
-                <p>A modern website for a bar, featuring a parallax scrolling hero, sticky navigation, tabbed menu for drinks and events, and a fixed social media footer.</p>
-                <button @click="openImageModal(images.eastTexasTavern)" class="project-link">View Details</button>
-              </div>
-            </article>
-            <article class="project">
-              <img :src="images.eastTexasTavern2" alt="Tavern Website Mockup" class="project-image" @error="handleImageError" />
-              <div class="project-content">
-                <h3>Tavern</h3>
-                <p>A vibrant take on the bar website, showcasing a scrolling marquee for live music events in the tabbed menu, paired with a gritty, rustic aesthetic.</p>
-                <button @click="openImageModal(images.eastTexasTavern2)" class="project-link">View Details</button>
-              </div>
-            </article>
-            <!-- Cloned projects -->
-            <article class="project">
-              <img :src="images.tylerFurniture" alt="Furniture Co. Website Mockup" class="project-image" @error="handleImageError" />
-              <div class="project-content">
-                <h3>Furniture Co.</h3>
-                <p>A bold, responsive website for a furniture store, featuring a modern hero, product grid, and sticky navigation for a premium user experience.</p>
-                <button @click="openImageModal(images.tylerFurniture)" class="project-link">View Details</button>
-              </div>
-            </article>
-            <article class="project">
-              <img :src="images.cedarCreekDrywall" alt="Drywall Website Mockup" class="project-image" @error="handleImageError" />
-              <div class="project-content">
-                <h3>Drywall</h3>
-                <p>A rugged, responsive site for a sheetrock contractor, with fixed nav tabs, a drywall texture background, and real construction images.</p>
-                <button @click="openImageModal(images.cedarCreekDrywall)" class="project-link">View Details</button>
-              </div>
-            </article>
-            <article class="project">
-              <img :src="images.cedarCreekDrywall2" alt="Drywall Website Mockup" class="project-image" @error="handleImageError" />
-              <div class="project-content">
-                <h3>Drywall</h3>
-                <p>A fresh take on the sheetrock contractor site, with a unique layout and enhanced visuals for clients.</p>
-                <button @click="openImageModal(images.cedarCreekDrywall2)" class="project-link">View Details</button>
-              </div>
-            </article>
-            <article class="project">
-              <img :src="images.martinezBrosIrrigation" alt="Irrigation Website Mockup" class="project-image" @error="handleImageError" />
-              <div class="project-content">
-                <h3>Irrigation</h3>
-                <p>A responsive website for an irrigation company, featuring a fixed top navigation, lush lawn imagery, and a clean service grid for showcasing sprinkler and lawn care services.</p>
-                <button @click="openImageModal(images.martinezBrosIrrigation)" class="project-link">View Details</button>
-              </div>
-            </article>
-            <article class="project">
-              <img :src="images.martinezBrosIrrigation2" alt="Irrigation Website Mockup" class="project-image" @error="handleImageError" />
-              <div class="project-content">
-                <h3>Irrigation</h3>
-                <p>A unique take on the irrigation site with a bottom navigation bar, circular service cards, and a diagonal section tilt, showcasing a modern, dynamic layout.</p>
-                <button @click="openImageModal(images.martinezBrosIrrigation2)" class="project-link">View Details</button>
-              </div>
-            </article>
-            <article class="project">
-              <img :src="images.lakeviewCoffee" alt="Coffee Co. Website Mockup" class="project-image" @error="handleImageError" />
-              <div class="project-content">
-                <h3>Coffee Co.</h3>
-                <p>A vibrant website for a coffee shop, featuring a full-screen overlay menu with animated links, a split-screen hero with a large cozy coffee shop image, and a carousel slider for the menu.</p>
-                <button @click="openImageModal(images.lakeviewCoffee)" class="project-link">View Details</button>
-              </div>
-            </article>
-            <article class="project">
-              <img :src="images.lakeviewCoffee2" alt="Coffee Co. Website Mockup" class="project-image" @error="handleImageError" />
-              <div class="project-content">
-                <h3>Coffee Co.</h3>
-                <p>A dynamic take on the coffee shop site, emphasizing the split-screen hero with right-aligned text and a carousel showcasing artisanal coffee and pastries.</p>
-                <button @click="openImageModal(images.lakeviewCoffee2)" class="project-link">View Details</button>
-              </div>
-            </article>
-            <article class="project">
-              <img :src="images.lakeviewCoffee3" alt="Coffee Co. Website Mockup" class="project-image" @error="handleImageError" />
-              <div class="project-content">
-                <h3>Coffee Co.</h3>
-                <p>A fresh iteration of the coffee shop website, highlighting a fixed contact bar and a cozy aesthetic with a prominent background image.</p>
-                <button @click="openImageModal(images.lakeviewCoffee3)" class="project-link">View Details</button>
-              </div>
-            </article>
-            <article class="project">
-              <img :src="images.eastTexasTavern" alt="Tavern Website Mockup" class="project-image" @error="handleImageError" />
-              <div class="project-content">
-                <h3>Tavern</h3>
-                <p>A modern website for a bar, featuring a parallax scrolling hero, sticky navigation, tabbed menu for drinks and events, and a fixed social media footer.</p>
-                <button @click="openImageModal(images.eastTexasTavern)" class="project-link">View Details</button>
-              </div>
-            </article>
-            <article class="project">
-              <img :src="images.eastTexasTavern2" alt="Tavern Website Mockup" class="project-image" @error="handleImageError" />
-              <div class="project-content">
-                <h3>Tavern</h3>
-                <p>A vibrant take on the bar website, showcasing a scrolling marquee for live music events in the tabbed menu, paired with a gritty, rustic aesthetic.</p>
-                <button @click="openImageModal(images.eastTexasTavern2)" class="project-link">View Details</button>
-              </div>
-            </article>
-          </div>
-          <button class="carousel-btn prev-btn">←</button>
-          <button class="carousel-btn next-btn">→</button>
-        </div>
-      </div>
-    </section>
-
-    <!-- Image Modal -->
-    <div v-if="showModal" class="modal">
-      <div class="modal-content">
-        <span class="modal-close" @click="closeImageModal">&times;</span>
-        <img :src="modalImage" alt="Enlarged Project Image" class="modal-image" />
-      </div>
-    </div>
-
-    <!-- Contact Modal -->
-    <div v-if="showContactModal" class="modal contact-modal">
-      <div class="modal-content">
-        <span class="modal-close" @click="closeContactModal">&times;</span>
-        <h2>Let's Build Something</h2>
-        <p>Fill out the form or copy my email to get started.</p>
-        <form class="contact-form" @submit.prevent="submitContactForm">
-          <input type="text" v-model="contactForm.name" placeholder="Your Name" required />
-          <input type="email" v-model="contactForm.email" placeholder="Your Email" required />
-          <textarea v-model="contactForm.message" placeholder="Your Message" required></textarea>
-          <button type="submit" class="cta">Send Message</button>
-        </form>
-        <button @click="copyEmail" class="cta email-copy">Copy Email: armeswebsites@gmail.com</button>
-      </div>
-    </div>
-
-    <!-- Contact Section -->
-    <section class="contact" id="contact">
-      <div class="container">
-        <h2>Ready to Start?</h2>
-        <p>Contact me to bring your website vision to life.</p>
-        <button @click="openContactModal" class="cta">Get in Touch</button>
-      </div>
-    </section>
+<!-- Hero Section -->
+<section class="hero" id="home">
+  <div class="hero-content">
+    <h1>You Want It. I Build It.</h1>
+    <p>Custom, responsive websites tailored for your business—built to grow your brand.</p>
+    <button @click="openContactModal" class="cta">Get a Free Quote</button>
   </div>
+</section>
+
+<!-- About/Services Section -->
+<section class="about" id="about">
+  <div class="container">
+    <h2>What I Build</h2>
+    <p class="about-intro">I craft clean, user-friendly websites for businesses.</p>
+    <div class="services-carousel">
+      <div class="services-track">
+        <!-- Original cards -->
+        <div class="service-card">
+          <h3>Responsive Websites</h3>
+          <p>Sites that look great on any device, from phones to desktops.</p>
+        </div>
+        <div class="service-card">
+          <h3>Landing Pages</h3>
+          <p>High-converting pages designed to drive customer action.</p>
+        </div>
+        <div class="service-card">
+          <h3>SEO-Friendly Designs</h3>
+          <p>Optimized to rank higher and attract clients.</p>
+        </div>
+        <!-- Cloned cards -->
+        <div class="service-card">
+          <h3>Responsive Websites</h3>
+          <p>Sites that look great on any device, from phones to desktops.</p>
+        </div>
+        <div class="service-card">
+          <h3>Landing Pages</h3>
+          <p>High-converting pages designed to drive customer action.</p>
+        </div>
+        <div class="service-card">
+          <h3>SEO-Friendly Designs</h3>
+          <p>Optimized to rank higher and attract clients.</p>
+        </div>
+      </div>
+      <button class="carousel-btn service-prev-btn">←</button>
+      <button class="carousel-btn service-next-btn">→</button>
+    </div>
+  </div>
+</section>
+
+<!-- Portfolio Section -->
+<section class="portfolio" id="portfolio">
+  <div class="container">
+    <h2>My Work</h2>
+    <p class="portfolio-intro">Click the arrows to explore my business websites.</p>
+    <div class="carousel">
+      <div class="carousel-track">
+        <!-- Original projects -->
+        <article class="project">
+          <img :src="images.tylerFurniture" alt="Furniture Co. Website Mockup" class="project-image" @error="handleImageError" />
+          <div class="project-content">
+            <h3>Furniture Co.</h3>
+            <p>A bold, responsive website for a furniture store, featuring a modern hero, product grid, and sticky navigation for a premium user experience.</p>
+            <button @click="openImageModal(images.tylerFurniture)" class="project-link">View Details</button>
+          </div>
+        </article>
+        <article class="project">
+          <img :src="images.cedarCreekDrywall" alt="Drywall Website Mockup" class="project-image" @error="handleImageError" />
+          <div class="project-content">
+            <h3>Drywall</h3>
+            <p>A rugged, responsive site for a sheetrock contractor, with fixed nav tabs, a drywall texture background, and real construction images.</p>
+            <button @click="openImageModal(images.cedarCreekDrywall)" class="project-link">View Details</button>
+          </div>
+        </article>
+        <article class="project">
+          <img :src="images.cedarCreekDrywall2" alt="Drywall Website Mockup" class="project-image" @error="handleImageError" />
+          <div class="project-content">
+            <h3>Drywall</h3>
+            <p>A fresh take on the sheetrock contractor site, with a unique layout and enhanced visuals for clients.</p>
+            <button @click="openImageModal(images.cedarCreekDrywall2)" class="project-link">View Details</button>
+          </div>
+        </article>
+        <article class="project">
+          <img :src="images.martinezBrosIrrigation" alt="Irrigation Website Mockup" class="project-image" @error="handleImageError" />
+          <div class="project-content">
+            <h3>Irrigation</h3>
+            <p>A responsive website for an irrigation company, featuring a fixed top navigation, lush lawn imagery, and a clean service grid for showcasing sprinkler and lawn care services.</p>
+            <button @click="openImageModal(images.martinezBrosIrrigation)" class="project-link">View Details</button>
+          </div>
+        </article>
+        <article class="project">
+          <img :src="images.martinezBrosIrrigation2" alt="Irrigation Website Mockup" class="project-image" @error="handleImageError" />
+          <div class="project-content">
+            <h3>Irrigation</h3>
+            <p>A unique take on the irrigation site with a bottom navigation bar, circular service cards, and a diagonal section tilt, showcasing a modern, dynamic layout.</p>
+            <button @click="openImageModal(images.martinezBrosIrrigation2)" class="project-link">View Details</button>
+          </div>
+        </article>
+        <article class="project">
+          <img :src="images.lakeviewCoffee" alt="Coffee Co. Website Mockup" class="project-image" @error="handleImageError" />
+          <div class="project-content">
+            <h3>Coffee Co.</h3>
+            <p>A vibrant website for a coffee shop, featuring a full-screen overlay menu with animated links, a split-screen hero with a large cozy coffee shop image, and a carousel slider for the menu.</p>
+            <button @click="openImageModal(images.lakeviewCoffee)" class="project-link">View Details</button>
+          </div>
+        </article>
+        <article class="project">
+          <img :src="images.lakeviewCoffee2" alt="Coffee Co. Website Mockup" class="project-image" @error="handleImageError" />
+          <div class="project-content">
+            <h3>Coffee Co.</h3>
+            <p>A dynamic take on the coffee shop site, emphasizing the split-screen hero with right-aligned text and a carousel showcasing artisanal coffee and pastries.</p>
+            <button @click="openImageModal(images.lakeviewCoffee2)" class="project-link">View Details</button>
+          </div>
+        </article>
+        <article class="project">
+          <img :src="images.lakeviewCoffee3" alt="Coffee Co. Website Mockup" class="project-image" @error="handleImageError" />
+          <div class="project-content">
+            <h3>Coffee Co.</h3>
+            <p>A fresh iteration of the coffee shop website, highlighting a fixed contact bar and a cozy aesthetic with a prominent background image.</p>
+            <button @click="openImageModal(images.lakeviewCoffee3)" class="project-link">View Details</button>
+          </div>
+        </article>
+        <article class="project">
+          <img :src="images.eastTexasTavern" alt="Tavern Website Mockup" class="project-image" @error="handleImageError" />
+          <div class="project-content">
+            <h3>Tavern</h3>
+            <p>A modern website for a bar, featuring a parallax scrolling hero, sticky navigation, tabbed menu for drinks and events, and a fixed social media footer.</p>
+            <button @click="openImageModal(images.eastTexasTavern)" class="project-link">View Details</button>
+          </div>
+        </article>
+        <article class="project">
+          <img :src="images.eastTexasTavern2" alt="Tavern Website Mockup" class="project-image" @error="handleImageError" />
+          <div class="project-content">
+            <h3>Tavern</h3>
+            <p>A vibrant take on the bar website, showcasing a scrolling marquee for live music events in the tabbed menu, paired with a gritty, rustic aesthetic.</p>
+            <button @click="openImageModal(images.eastTexasTavern2)" class="project-link">View Details</button>
+          </div>
+        </article>
+        <!-- Cloned projects -->
+        <article class="project">
+          <img :src="images.tylerFurniture" alt="Furniture Co. Website Mockup" class="project-image" @error="handleImageError" />
+          <div class="project-content">
+            <h3>Furniture Co.</h3>
+            <p>A bold, responsive website for a furniture store, featuring a modern hero, product grid, and sticky navigation for a premium user experience.</p>
+            <button @click="openImageModal(images.tylerFurniture)" class="project-link">View Details</button>
+          </div>
+        </article>
+        <article class="project">
+          <img :src="images.cedarCreekDrywall" alt="Drywall Website Mockup" class="project-image" @error="handleImageError" />
+          <div class="project-content">
+            <h3>Drywall</h3>
+            <p>A rugged, responsive site for a sheetrock contractor, with fixed nav tabs, a drywall texture background, and real construction images.</p>
+            <button @click="openImageModal(images.cedarCreekDrywall)" class="project-link">View Details</button>
+          </div>
+        </article>
+        <article class="project">
+          <img :src="images.cedarCreekDrywall2" alt="Drywall Website Mockup" class="project-image" @error="handleImageError" />
+          <div class="project-content">
+            <h3>Drywall</h3>
+            <p>A fresh take on the sheetrock contractor site, with a unique layout and enhanced visuals for clients.</p>
+            <button @click="openImageModal(images.cedarCreekDrywall2)" class="project-link">View Details</button>
+          </div>
+        </article>
+        <article class="project">
+          <img :src="images.martinezBrosIrrigation" alt="Irrigation Website Mockup" class="project-image" @error="handleImageError" />
+          <div class="project-content">
+            <h3>Irrigation</h3>
+            <p>A responsive website for an irrigation company, featuring a fixed top navigation, lush lawn imagery, and a clean service grid for showcasing sprinkler and lawn care services.</p>
+            <button @click="openImageModal(images.martinezBrosIrrigation)" class="project-link">View Details</button>
+          </div>
+        </article>
+        <article class="project">
+          <img :src="images.martinezBrosIrrigation2" alt="Irrigation Website Mockup" class="project-image" @error="handleImageError" />
+          <div class="project-content">
+            <h3>Irrigation</h3>
+            <p>A unique take on the irrigation site with a bottom navigation bar, circular service cards, and a diagonal section tilt, showcasing a modern, dynamic layout.</p>
+            <button @click="openImageModal(images.martinezBrosIrrigation2)" class="project-link">View Details</button>
+          </div>
+        </article>
+        <article class="project">
+          <img :src="images.lakeviewCoffee" alt="Coffee Co. Website Mockup" class="project-image" @error="handleImageError" />
+          <div class="project-content">
+            <h3>Coffee Co.</h3>
+            <p>A vibrant website for a coffee shop, featuring a full-screen overlay menu with animated links, a split-screen hero with a large cozy coffee shop image, and a carousel slider for the menu.</p>
+            <button @click="openImageModal(images.lakeviewCoffee)" class="project-link">View Details</button>
+          </div>
+        </article>
+        <article class="project">
+          <img :src="images.lakeviewCoffee2" alt="Coffee Co. Website Mockup" class="project-image" @error="handleImageError" />
+          <div class="project-content">
+            <h3>Coffee Co.</h3>
+            <p>A dynamic take on the coffee shop site, emphasizing the split-screen hero with right-aligned text and a carousel showcasing artisanal coffee and pastries.</p>
+            <button @click="openImageModal(images.lakeviewCoffee2)" class="project-link">View Details</button>
+          </div>
+        </article>
+        <article class="project">
+          <img :src="images.lakeviewCoffee3" alt="Coffee Co. Website Mockup" class="project-image" @error="handleImageError" />
+          <div class="project-content">
+            <h3>Coffee Co.</h3>
+            <p>A fresh iteration of the coffee shop website, highlighting a fixed contact bar and a cozy aesthetic with a prominent background image.</p>
+            <button @click="openImageModal(images.lakeviewCoffee3)" class="project-link">View Details</button>
+          </div>
+        </article>
+        <article class="project">
+          <img :src="images.eastTexasTavern" alt="Tavern Website Mockup" class="project-image" @error="handleImageError" />
+          <div class="project-content">
+            <h3>Tavern</h3>
+            <p>A modern website for a bar, featuring a parallax scrolling hero, sticky navigation, tabbed menu for drinks and events, and a fixed social media footer.</p>
+            <button @click="openImageModal(images.eastTexasTavern)" class="project-link">View Details</button>
+          </div>
+        </article>
+        <article class="project">
+          <img :src="images.eastTexasTavern2" alt="Tavern Website Mockup" class="project-image" @error="handleImageError" />
+          <div class="project-content">
+            <h3>Tavern</h3>
+            <p>A vibrant take on the bar website, showcasing a scrolling marquee for live music events in the tabbed menu, paired with a gritty, rustic aesthetic.</p>
+            <button @click="openImageModal(images.eastTexasTavern2)" class="project-link">View Details</button>
+          </div>
+        </article>
+      </div>
+      <button class="carousel-btn prev-btn">←</button>
+      <button class="carousel-btn next-btn">→</button>
+    </div>
+  </div>
+</section>
+
+<!-- Image Modal -->
+<div v-if="showModal" class="modal">
+  <div class="modal-content">
+    <span class="modal-close" @click="closeImageModal">&times;</span>
+    <img :src="modalImage" alt="Enlarged Project Image" class="modal-image" />
+  </div>
+</div>
+
+<!-- Contact Modal -->
+<div v-if="showContactModal" class="modal contact-modal">
+  <div class="modal-content">
+    <span class="modal-close" @click="closeContactModal">&times;</span>
+    <h2>Let's Build Something</h2>
+    <p>Fill out the form or copy my email to get started.</p>
+    <form class="contact-form" @submit.prevent="submitContactForm">
+      <input type="text" v-model="contactForm.name" placeholder="Your Name" required />
+      <input type="email" v-model="contactForm.email" placeholder="Your Email" required />
+      <textarea v-model="contactForm.message" placeholder="Your Message" required></textarea>
+      <button type="submit" class="cta">Send Message</button>
+    </form>
+    <button @click="copyEmail" class="cta email-copy">Copy Email: armeswebsites@gmail.com</button>
+  </div>
+</div>
+
+<!-- Contact Section -->
+<section class="contact" id="contact">
+  <div class="container">
+    <h2>Ready to Start?</h2>
+    <p>Contact me to bring your website vision to life.</p>
+    <button @click="openContactModal" class="cta">Get in Touch</button>
+  </div>
+</section>  </div>
 </template>
 
 <script>
@@ -910,3 +909,4 @@ export default {
   }
 }
 </style>
+

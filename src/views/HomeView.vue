@@ -1,7 +1,19 @@
+<!-- Home.vue (or whichever file this component is in) -->
 <template>
   <div class="home">
+    <!-- Header Section with Navigation -->
+    <header class="header">
+      <h1>Web Rousers</h1>
+      <nav class="nav">
+        <a href="#home">Home</a>
+        <a href="#about">Services</a>
+        <a href="#portfolio">Portfolio</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </header>
+
     <!-- Hero Section -->
-    <section class="hero">
+    <section class="hero" id="home">
       <div class="hero-content">
         <h1>You Want It. I Build It.</h1>
         <p>Custom, responsive websites tailored for your business—built to grow your brand.</p>
@@ -10,7 +22,7 @@
     </section>
 
     <!-- About/Services Section -->
-    <section class="about">
+    <section class="about" id="about">
       <div class="container">
         <h2>What I Build</h2>
         <p class="about-intro">I craft clean, user-friendly websites for businesses.</p>
@@ -50,7 +62,7 @@
     </section>
 
     <!-- Portfolio Section -->
-    <section class="portfolio">
+    <section class="portfolio" id="portfolio">
       <div class="container">
         <h2>My Work</h2>
         <p class="portfolio-intro">Click the arrows to explore my business websites.</p>
@@ -309,7 +321,7 @@ export default {
       }
     },
     handleImageError(event) {
-      event.target.src = 'https://placehold.co/600x300/000000/FFFFFF?text=Project+Coming+Soon&font=montserrat';
+      event.target.src = 'https://placehold.co/600x300/1A1A1A/FFFFFF?text=Project+Coming+Soon&font=montserrat';
     },
     initCarousel() {
       const track = document.querySelector('.carousel-track');
@@ -344,6 +356,29 @@ export default {
             updateCarousel(false);
           }, 500); // Match transition duration
         }
+      });
+
+      // Auto-scroll
+      let autoScrollInterval = setInterval(() => {
+        currentIndex++;
+        updateCarousel();
+        if (currentIndex === totalItems + 1) {
+          currentIndex = 1;
+          updateCarousel(false);
+        }
+      }, 3000); // 3 seconds per slide
+
+      // Pause on hover
+      track.parentElement.addEventListener('mouseenter', () => clearInterval(autoScrollInterval));
+      track.parentElement.addEventListener('mouseleave', () => {
+        autoScrollInterval = setInterval(() => {
+          currentIndex++;
+          updateCarousel();
+          if (currentIndex === totalItems + 1) {
+            currentIndex = 1;
+            updateCarousel(false);
+          }
+        }, 3000);
       });
 
       this.$nextTick(() => {
@@ -385,6 +420,29 @@ export default {
         }
       });
 
+      // Auto-scroll
+      let autoScrollInterval = setInterval(() => {
+        currentIndex++;
+        updateCarousel();
+        if (currentIndex === totalItems + 1) {
+          currentIndex = 1;
+          updateCarousel(false);
+        }
+      }, 3000); // 3 seconds per slide
+
+      // Pause on hover
+      track.parentElement.addEventListener('mouseenter', () => clearInterval(autoScrollInterval));
+      track.parentElement.addEventListener('mouseleave', () => {
+        autoScrollInterval = setInterval(() => {
+          currentIndex++;
+          updateCarousel();
+          if (currentIndex === totalItems + 1) {
+            currentIndex = 1;
+            updateCarousel(false);
+          }
+        }, 3000);
+      });
+
       this.$nextTick(() => {
         updateCarousel(false); // Initial position without transition
       });
@@ -421,8 +479,42 @@ export default {
 .home {
   scroll-behavior: smooth;
   font-family: 'Montserrat', sans-serif;
-  background: #000000; /* Black background */
-  color: #FFFFFF; /* White text */
+  background: var(--background);
+  color: var(--text);
+}
+
+/* Header Section */
+.header {
+  text-align: center;
+  padding: 20px 0;
+  background: var(--background);
+}
+.header h1 {
+  font-size: 3rem;
+  font-weight: 700;
+  color: var(--primary);
+  text-transform: uppercase;
+  margin: 0;
+  letter-spacing: 2px;
+  transition: color 0.3s ease;
+}
+.header h1:hover {
+  color: var(--secondary);
+}
+.nav {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 10px;
+}
+.nav a {
+  color: var(--text);
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s;
+}
+.nav a:hover {
+  color: var(--primary);
 }
 
 /* Container */
@@ -434,11 +526,11 @@ export default {
 
 /* Hero Section */
 .hero {
-  height: 100vh;
+  height: 80vh;
   display: flex;
   align-items: center;
   justify-content: center;
-  background: #000000; /* Black background */
+  background: var(--background);
   text-align: center;
   animation: fadeIn 1s ease-in;
 }
@@ -449,19 +541,19 @@ export default {
   font-size: 4rem;
   font-weight: 700;
   margin-bottom: 20px;
-  color: #FFFFFF; /* White text */
+  color: var(--text);
   text-transform: uppercase;
 }
 .hero p {
   font-size: 1.5rem;
   margin-bottom: 30px;
-  color: #FFFFFF; /* White text */
+  color: var(--text);
 }
 .cta {
   display: inline-block;
   padding: 12px 24px;
-  background: #FF0000; /* Red accent */
-  color: #FFFFFF;
+  background: var(--primary);
+  color: var(--text);
   text-decoration: none;
   border: none;
   border-radius: 5px;
@@ -470,7 +562,7 @@ export default {
   transition: transform 0.3s, background 0.3s;
 }
 .cta:hover {
-  background: #800080; /* Purple on hover */
+  background: var(--accent);
   transform: scale(1.05);
 }
 
@@ -483,17 +575,17 @@ export default {
 /* About Section */
 .about {
   padding: 80px 20px;
-  background: #FFFFFF; /* White background */
+  background: var(--text);
 }
 .about h2 {
   font-size: 2.5rem;
   margin-bottom: 20px;
-  color: #000000; /* Black text */
+  color: var(--background);
   text-transform: uppercase;
 }
 .about-intro {
   font-size: 1.2rem;
-  color: #000000; /* Black text */
+  color: var(--background);
   margin-bottom: 40px;
 }
 .services-carousel {
@@ -508,7 +600,7 @@ export default {
 }
 .service-card {
   flex: 0 0 16.6667%; /* 100% / 6 */
-  background: #000000; /* Black card */
+  background: var(--background);
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
@@ -516,23 +608,23 @@ export default {
   transition: border 0.3s;
 }
 .service-card:hover {
-  border: 2px solid #FF0000; /* Red border on hover */
+  border: 2px solid var(--primary);
 }
 .service-card h3 {
   font-size: 1.5rem;
   margin-bottom: 10px;
-  color: #800080; /* Purple headings */
+  color: var(--secondary);
 }
 .service-card p {
   font-size: 1rem;
-  color: #FFFFFF; /* White text */
+  color: var(--text);
 }
 .carousel-btn {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  background: #FF0000; /* Red buttons */
-  color: #FFFFFF;
+  background: var(--primary);
+  color: var(--text);
   border: none;
   padding: 10px;
   cursor: pointer;
@@ -541,7 +633,7 @@ export default {
   transition: background 0.3s;
 }
 .carousel-btn:hover {
-  background: #800080; /* Purple on hover */
+  background: var(--accent);
 }
 .service-prev-btn {
   left: 10px;
@@ -553,19 +645,19 @@ export default {
 /* Portfolio Section */
 .portfolio {
   padding: 80px 20px;
-  background: #000000; /* Black background */
+  background: var(--background);
 }
 .portfolio h2 {
   text-align: center;
   font-size: 2.5rem;
   margin-bottom: 10px;
-  color: #FFFFFF; /* White text */
+  color: var(--text);
   text-transform: uppercase;
 }
 .portfolio-intro {
   text-align: center;
   font-size: 1rem;
-  color: #FFFFFF; /* White text */
+  color: var(--text);
   margin-bottom: 40px;
 }
 .carousel {
@@ -575,12 +667,14 @@ export default {
 .carousel-track {
   display: flex;
   width: 2000%; /* 20 projects (10 original + 10 clones) */
+  animation-play-state: running; /* Default for auto-scroll */
+  animation-play-state: var(--auto-scroll-pause, running);
 }
 .project {
   flex: 0 0 5%; /* 100% / 20 */
   display: flex;
   align-items: center;
-  background: #000000; /* Black card */
+  background: var(--background);
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
   overflow: hidden;
@@ -588,7 +682,7 @@ export default {
 }
 .project:hover {
   transform: translateY(-5px);
-  border: 2px solid #FF0000; /* Red border on hover */
+  border: 2px solid var(--primary);
 }
 .project-image {
   width: 50%;
@@ -602,18 +696,18 @@ export default {
 .project h3 {
   font-size: 1.8rem;
   margin-bottom: 10px;
-  color: #FFFFFF; /* White text */
+  color: var(--text);
 }
 .project p {
-  color: #FFFFFF; /* White text */
+  color: var(--text);
   line-height: 1.5;
   margin-bottom: 10px;
 }
 .project-link {
   display: inline-block;
   padding: 8px 16px;
-  background: #FF0000; /* Red button */
-  color: #FFFFFF;
+  background: var(--primary);
+  color: var(--text);
   text-decoration: none;
   border-radius: 5px;
   font-weight: bold;
@@ -621,25 +715,32 @@ export default {
   transition: background 0.3s, transform 0.3s;
 }
 .project-link:hover {
-  background: #800080; /* Purple on hover */
+  background: var(--accent);
   transform: scale(1.05);
 }
 .carousel-btn.prev-btn {
   left: 10px;
-  opacity: 0; /* Hidden by default */
-  pointer-events: none; /* Disable clicks */
-  transition: opacity 0.3s ease; /* Smooth transition */
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
 }
 .carousel-btn.next-btn {
   right: 10px;
-  opacity: 0; /* Hidden by default */
-  pointer-events: none; /* Disable clicks */
-  transition: opacity 0.3s ease; /* Smooth transition */
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
 }
 .carousel:hover .carousel-btn.prev-btn,
 .carousel:hover .carousel-btn.next-btn {
-  opacity: 1; /* Show on hover */
-  pointer-events: auto; /* Enable clicks */
+  opacity: 1;
+  pointer-events: auto;
+}
+@media (hover: none) {
+  .carousel-btn.prev-btn,
+  .carousel-btn.next-btn {
+    opacity: 1;
+    pointer-events: auto;
+  }
 }
 
 /* Modal (Image and Contact) */
@@ -649,7 +750,7 @@ export default {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.9); /* Darker black overlay */
+  background: rgba(0, 0, 0, 0.9);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -664,35 +765,35 @@ export default {
   width: 100%;
   height: auto;
   border-radius: 10px;
-  border: 2px solid #800080; /* Purple border */
+  border: 2px solid var(--secondary);
 }
 .modal-close {
   position: absolute;
   top: -30px;
   right: -30px;
   font-size: 2rem;
-  color: #FFFF00; /* Yellow close button */
+  color: var(--secondary);
   cursor: pointer;
   transition: color 0.3s;
 }
 .modal-close:hover {
-  color: #FF0000; /* Red on hover */
+  color: var(--primary);
 }
 .contact-modal .modal-content {
-  background: #FFFFFF; /* White background */
+  background: var(--text);
   padding: 40px;
   border-radius: 10px;
   text-align: center;
-  border: 2px solid #800080; /* Purple border */
+  border: 2px solid var(--secondary);
 }
 .contact-modal h2 {
   font-size: 2rem;
   margin-bottom: 20px;
-  color: #000000; /* Black text */
+  color: var(--background);
 }
 .contact-modal p {
   font-size: 1.1rem;
-  color: #000000; /* Black text */
+  color: var(--background);
   margin-bottom: 20px;
 }
 .contact-form {
@@ -704,11 +805,11 @@ export default {
 .contact-form input,
 .contact-form textarea {
   padding: 10px;
-  border: 1px solid #000000; /* Black border */
+  border: 1px solid var(--background);
   border-radius: 5px;
   font-size: 1rem;
-  background: #FFFFFF;
-  color: #000000;
+  background: var(--text);
+  color: var(--background);
 }
 .contact-form textarea {
   height: 100px;
@@ -716,36 +817,46 @@ export default {
 }
 .email-copy {
   margin-top: 10px;
-  background: #FF0000; /* Red button */
+  background: var(--primary);
 }
 .email-copy:hover {
-  background: #800080; /* Purple on hover */
+  background: var(--accent);
 }
 
 /* Contact Section */
 .contact {
   padding: 80px 20px;
-  background: #000000; /* Black background */
+  background: var(--background);
 }
 .contact h2 {
   font-size: 2.5rem;
   margin-bottom: 20px;
-  color: #FFFFFF; /* White text */
+  color: var(--text);
   text-transform: uppercase;
 }
 .contact p {
   font-size: 1.2rem;
   margin-bottom: 30px;
-  color: #FFFFFF; /* White text */
+  color: var(--text);
 }
 
 /* Responsive */
 @media (max-width: 768px) {
+  .header h1 {
+    font-size: 2rem;
+  }
+  .nav {
+    flex-direction: column;
+    gap: 10px;
+  }
   .hero h1 {
     font-size: 2.5rem;
   }
   .hero p {
     font-size: 1.2rem;
+  }
+  .hero {
+    height: 70vh;
   }
   .about h2 {
     font-size: 2rem;
@@ -778,16 +889,11 @@ export default {
   }
   .carousel-btn.prev-btn {
     left: 5px;
-    opacity: 0;
-    pointer-events: none;
+    opacity: 1;
+    pointer-events: auto;
   }
   .carousel-btn.next-btn {
     right: 5px;
-    opacity: 0;
-    pointer-events: none;
-  }
-  .carousel:hover .carousel-btn.prev-btn,
-  .carousel:hover .carousel-btn.next-btn {
     opacity: 1;
     pointer-events: auto;
   }

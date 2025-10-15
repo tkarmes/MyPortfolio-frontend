@@ -1,8 +1,31 @@
 <template>
-  <div id="app">
+  <div
+    id="app"
+    :style="{
+      backgroundImage: `url(${woodTexture})`,
+      backgroundRepeat: 'no-repeat',
+      backgroundPosition: 'center center',
+      backgroundAttachment: 'fixed',
+      backgroundSize: 'cover',
+      backgroundColor: 'var(--background)', // Fallback if image fails
+      minHeight: '100vh'
+    }"
+  >
     <router-view />
   </div>
 </template>
+
+<script>
+import woodTexture from '@/assets/wood-texture.jpg'; // Import the image from src/assets
+
+export default {
+  data() {
+    return {
+      woodTexture, // Reference the imported image
+    };
+  },
+};
+</script>
 
 <style>
 /* Global CSS Variables */
@@ -17,9 +40,7 @@
 html, body, #app {
   font-family: 'Montserrat', sans-serif;
   text-align: center;
-  background: var(--background);
   color: var(--text);
-  min-height: 100vh;
   margin: 0;
   padding: 0;
 }

@@ -1,274 +1,285 @@
-<!-- Home.vue (or whichever file this component is in) -->
+<!-- Home.vue -->
 <template>
   <div class="home">
     <!-- Header Section with Navigation -->
     <header class="header">
-      <h1>Web Rousers</h1>
-      <nav class="nav">
-        <a href="#home">Home</a>
-        <a href="#about">Services</a>
-        <a href="#portfolio">Portfolio</a>
-        <a href="#contact">Contact</a>
-      </nav>
+      <div class="header-container">
+        <nav class="nav nav-left">
+          <a href="#home">Home</a>
+          <a href="#about">Services</a>
+        </nav>
+        <a href="#home" class="logo-link">
+          <img :src="images.webRousersLogo" alt="Web Rousers Logo" class="header-logo" @error="handleImageError" />
+        </a>
+        <nav class="nav nav-right">
+          <a href="#portfolio">Portfolio</a>
+          <a href="#contact">Contact</a>
+        </nav>
+      </div>
     </header>
 
-<!-- Hero Section -->
-<section class="hero" id="home">
-  <div class="hero-content">
-    <h1>You Want It. I Build It.</h1>
-    <p>Custom, responsive websites tailored for your business—built to grow your brand.</p>
-    <button @click="openContactModal" class="cta">Get a Free Quote</button>
-  </div>
-</section>
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+      <div class="hero-background"></div>
+      <div class="hero-content">
+        <h1>You Want It. I Build It.</h1>
+        <p>Custom, responsive websites tailored for your business—built to grow your brand.</p>
+        <button @click="openContactModal" class="cta">Get a Free Quote</button>
+      </div>
+    </section>
 
-<!-- About/Services Section -->
-<section class="about" id="about">
-  <div class="container">
-    <h2>What I Build</h2>
-    <p class="about-intro">I craft clean, user-friendly websites for businesses.</p>
-    <div class="services-carousel">
-      <div class="services-track">
-        <!-- Original cards -->
-        <div class="service-card">
-          <h3>Responsive Websites</h3>
-          <p>Sites that look great on any device, from phones to desktops.</p>
-        </div>
-        <div class="service-card">
-          <h3>Landing Pages</h3>
-          <p>High-converting pages designed to drive customer action.</p>
-        </div>
-        <div class="service-card">
-          <h3>SEO-Friendly Designs</h3>
-          <p>Optimized to rank higher and attract clients.</p>
-        </div>
-        <!-- Cloned cards -->
-        <div class="service-card">
-          <h3>Responsive Websites</h3>
-          <p>Sites that look great on any device, from phones to desktops.</p>
-        </div>
-        <div class="service-card">
-          <h3>Landing Pages</h3>
-          <p>High-converting pages designed to drive customer action.</p>
-        </div>
-        <div class="service-card">
-          <h3>SEO-Friendly Designs</h3>
-          <p>Optimized to rank higher and attract clients.</p>
+    <!-- About/Services Section -->
+    <section class="about" id="about">
+      <div class="container">
+        <h2>What I Build</h2>
+        <p class="about-intro">I craft clean, user-friendly websites for businesses.</p>
+        <div class="services-carousel">
+          <div class="services-track">
+            <!-- Original cards -->
+            <div class="service-card">
+              <h3>Responsive Websites</h3>
+              <p>Sites that look great on any device, from phones to desktops.</p>
+            </div>
+            <div class="service-card">
+              <h3>Landing Pages</h3>
+              <p>High-converting pages designed to drive customer action.</p>
+            </div>
+            <div class="service-card">
+              <h3>SEO-Friendly Designs</h3>
+              <p>Optimized to rank higher and attract clients.</p>
+            </div>
+            <!-- Cloned cards -->
+            <div class="service-card">
+              <h3>Responsive Websites</h3>
+              <p>Sites that look great on any device, from phones to desktops.</p>
+            </div>
+            <div class="service-card">
+              <h3>Landing Pages</h3>
+              <p>High-converting pages designed to drive customer action.</p>
+            </div>
+            <div class="service-card">
+              <h3>SEO-Friendly Designs</h3>
+              <p>Optimized to rank higher and attract clients.</p>
+            </div>
+          </div>
+          <button class="carousel-btn service-prev-btn">←</button>
+          <button class="carousel-btn service-next-btn">→</button>
         </div>
       </div>
-      <button class="carousel-btn service-prev-btn">←</button>
-      <button class="carousel-btn service-next-btn">→</button>
-    </div>
-  </div>
-</section>
+    </section>
 
-<!-- Portfolio Section -->
-<section class="portfolio" id="portfolio">
-  <div class="container">
-    <h2>My Work</h2>
-    <p class="portfolio-intro">Click the arrows to explore my business websites.</p>
-    <div class="carousel">
-      <div class="carousel-track">
-        <!-- Original projects -->
-        <article class="project">
-          <img :src="images.tylerFurniture" alt="Furniture Co. Website Mockup" class="project-image" @error="handleImageError" />
-          <div class="project-content">
-            <h3>Furniture Co.</h3>
-            <p>A bold, responsive website for a furniture store, featuring a modern hero, product grid, and sticky navigation for a premium user experience.</p>
-            <button @click="openImageModal(images.tylerFurniture)" class="project-link">View Details</button>
+    <!-- Portfolio Section -->
+    <section class="portfolio" id="portfolio">
+      <div class="container">
+        <h2>My Work</h2>
+        <p class="portfolio-intro">Click the arrows to explore my business websites.</p>
+        <div class="carousel">
+          <div class="carousel-track">
+            <!-- Original projects -->
+            <article class="project">
+              <img :src="images.tylerFurniture" alt="Furniture Co. Website Mockup" class="project-image" @error="handleImageError" />
+              <div class="project-content">
+                <h3>Furniture Co.</h3>
+                <p>A bold, responsive website for a furniture store, featuring a modern hero, product grid, and sticky navigation for a premium user experience.</p>
+                <button @click="openImageModal(images.tylerFurniture)" class="project-link">View Details</button>
+              </div>
+            </article>
+            <article class="project">
+              <img :src="images.cedarCreekDrywall" alt="Drywall Website Mockup" class="project-image" @error="handleImageError" />
+              <div class="project-content">
+                <h3>Drywall</h3>
+                <p>A rugged, responsive site for a sheetrock contractor, with fixed nav tabs, a drywall texture background, and real construction images.</p>
+                <button @click="openImageModal(images.cedarCreekDrywall)" class="project-link">View Details</button>
+              </div>
+            </article>
+            <article class="project">
+              <img :src="images.cedarCreekDrywall2" alt="Drywall Website Mockup" class="project-image" @error="handleImageError" />
+              <div class="project-content">
+                <h3>Drywall</h3>
+                <p>A fresh take on the sheetrock contractor site, with a unique layout and enhanced visuals for clients.</p>
+                <button @click="openImageModal(images.cedarCreekDrywall2)" class="project-link">View Details</button>
+              </div>
+            </article>
+            <article class="project">
+              <img :src="images.martinezBrosIrrigation" alt="Irrigation Website Mockup" class="project-image" @error="handleImageError" />
+              <div class="project-content">
+                <h3>Irrigation</h3>
+                <p>A responsive website for an irrigation company, featuring a fixed top navigation, lush lawn imagery, and a clean service grid for showcasing sprinkler and lawn care services.</p>
+                <button @click="openImageModal(images.martinezBrosIrrigation)" class="project-link">View Details</button>
+              </div>
+            </article>
+            <article class="project">
+              <img :src="images.martinezBrosIrrigation2" alt="Irrigation Website Mockup" class="project-image" @error="handleImageError" />
+              <div class="project-content">
+                <h3>Irrigation</h3>
+                <p>A unique take on the irrigation site with a bottom navigation bar, circular service cards, and a diagonal section tilt, showcasing a modern, dynamic layout.</p>
+                <button @click="openImageModal(images.martinezBrosIrrigation2)" class="project-link">View Details</button>
+              </div>
+            </article>
+            <article class="project">
+              <img :src="images.lakeviewCoffee" alt="Coffee Co. Website Mockup" class="project-image" @error="handleImageError" />
+              <div class="project-content">
+                <h3>Coffee Co.</h3>
+                <p>A vibrant website for a coffee shop, featuring a full-screen overlay menu with animated links, a split-screen hero with a large cozy coffee shop image, and a carousel slider for the menu.</p>
+                <button @click="openImageModal(images.lakeviewCoffee)" class="project-link">View Details</button>
+              </div>
+            </article>
+            <article class="project">
+              <img :src="images.lakeviewCoffee2" alt="Coffee Co. Website Mockup" class="project-image" @error="handleImageError" />
+              <div class="project-content">
+                <h3>Coffee Co.</h3>
+                <p>A dynamic take on the coffee shop site, emphasizing the split-screen hero with right-aligned text and a carousel showcasing artisanal coffee and pastries.</p>
+                <button @click="openImageModal(images.lakeviewCoffee2)" class="project-link">View Details</button>
+              </div>
+            </article>
+            <article class="project">
+              <img :src="images.lakeviewCoffee3" alt="Coffee Co. Website Mockup" class="project-image" @error="handleImageError" />
+              <div class="project-content">
+                <h3>Coffee Co.</h3>
+                <p>A fresh iteration of the coffee shop website, highlighting a fixed contact bar and a cozy aesthetic with a prominent background image.</p>
+                <button @click="openImageModal(images.lakeviewCoffee3)" class="project-link">View Details</button>
+              </div>
+            </article>
+            <article class="project">
+              <img :src="images.eastTexasTavern" alt="Tavern Website Mockup" class="project-image" @error="handleImageError" />
+              <div class="project-content">
+                <h3>Tavern</h3>
+                <p>A modern website for a bar, featuring a parallax scrolling hero, sticky navigation, tabbed menu for drinks and events, and a fixed social media footer.</p>
+                <button @click="openImageModal(images.eastTexasTavern)" class="project-link">View Details</button>
+              </div>
+            </article>
+            <article class="project">
+              <img :src="images.eastTexasTavern2" alt="Tavern Website Mockup" class="project-image" @error="handleImageError" />
+              <div class="project-content">
+                <h3>Tavern</h3>
+                <p>A vibrant take on the bar website, showcasing a scrolling marquee for live music events in the tabbed menu, paired with a gritty, rustic aesthetic.</p>
+                <button @click="openImageModal(images.eastTexasTavern2)" class="project-link">View Details</button>
+              </div>
+            </article>
+            <!-- Cloned projects -->
+            <article class="project">
+              <img :src="images.tylerFurniture" alt="Furniture Co. Website Mockup" class="project-image" @error="handleImageError" />
+              <div class="project-content">
+                <h3>Furniture Co.</h3>
+                <p>A bold, responsive website for a furniture store, featuring a modern hero, product grid, and sticky navigation for a premium user experience.</p>
+                <button @click="openImageModal(images.tylerFurniture)" class="project-link">View Details</button>
+              </div>
+            </article>
+            <article class="project">
+              <img :src="images.cedarCreekDrywall" alt="Drywall Website Mockup" class="project-image" @error="handleImageError" />
+              <div class="project-content">
+                <h3>Drywall</h3>
+                <p>A rugged, responsive site for a sheetrock contractor, with fixed nav tabs, a drywall texture background, and real construction images.</p>
+                <button @click="openImageModal(images.cedarCreekDrywall)" class="project-link">View Details</button>
+              </div>
+            </article>
+            <article class="project">
+              <img :src="images.cedarCreekDrywall2" alt="Drywall Website Mockup" class="project-image" @error="handleImageError" />
+              <div class="project-content">
+                <h3>Drywall</h3>
+                <p>A fresh take on the sheetrock contractor site, with a unique layout and enhanced visuals for clients.</p>
+                <button @click="openImageModal(images.cedarCreekDrywall2)" class="project-link">View Details</button>
+              </div>
+            </article>
+            <article class="project">
+              <img :src="images.martinezBrosIrrigation" alt="Irrigation Website Mockup" class="project-image" @error="handleImageError" />
+              <div class="project-content">
+                <h3>Irrigation</h3>
+                <p>A responsive website for an irrigation company, featuring a fixed top navigation, lush lawn imagery, and a clean service grid for showcasing sprinkler and lawn care services.</p>
+                <button @click="openImageModal(images.martinezBrosIrrigation)" class="project-link">View Details</button>
+              </div>
+            </article>
+            <article class="project">
+              <img :src="images.martinezBrosIrrigation2" alt="Irrigation Website Mockup" class="project-image" @error="handleImageError" />
+              <div class="project-content">
+                <h3>Irrigation</h3>
+                <p>A unique take on the irrigation site with a bottom navigation bar, circular service cards, and a diagonal section tilt, showcasing a modern, dynamic layout.</p>
+                <button @click="openImageModal(images.martinezBrosIrrigation2)" class="project-link">View Details</button>
+              </div>
+            </article>
+            <article class="project">
+              <img :src="images.lakeviewCoffee" alt="Coffee Co. Website Mockup" class="project-image" @error="handleImageError" />
+              <div class="project-content">
+                <h3>Coffee Co.</h3>
+                <p>A vibrant website for a coffee shop, featuring a full-screen overlay menu with animated links, a split-screen hero with a large cozy coffee shop image, and a carousel slider for the menu.</p>
+                <button @click="openImageModal(images.lakeviewCoffee)" class="project-link">View Details</button>
+              </div>
+            </article>
+            <article class="project">
+              <img :src="images.lakeviewCoffee2" alt="Coffee Co. Website Mockup" class="project-image" @error="handleImageError" />
+              <div class="project-content">
+                <h3>Coffee Co.</h3>
+                <p>A dynamic take on the coffee shop site, emphasizing the split-screen hero with right-aligned text and a carousel showcasing artisanal coffee and pastries.</p>
+                <button @click="openImageModal(images.lakeviewCoffee2)" class="project-link">View Details</button>
+              </div>
+            </article>
+            <article class="project">
+              <img :src="images.lakeviewCoffee3" alt="Coffee Co. Website Mockup" class="project-image" @error="handleImageError" />
+              <div class="project-content">
+                <h3>Coffee Co.</h3>
+                <p>A fresh iteration of the coffee shop website, highlighting a fixed contact bar and a cozy aesthetic with a prominent background image.</p>
+                <button @click="openImageModal(images.lakeviewCoffee3)" class="project-link">View Details</button>
+              </div>
+            </article>
+            <article class="project">
+              <img :src="images.eastTexasTavern" alt="Tavern Website Mockup" class="project-image" @error="handleImageError" />
+              <div class="project-content">
+                <h3>Tavern</h3>
+                <p>A modern website for a bar, featuring a parallax scrolling hero, sticky navigation, tabbed menu for drinks and events, and a fixed social media footer.</p>
+                <button @click="openImageModal(images.eastTexasTavern)" class="project-link">View Details</button>
+              </div>
+            </article>
+            <article class="project">
+              <img :src="images.eastTexasTavern2" alt="Tavern Website Mockup" class="project-image" @error="handleImageError" />
+              <div class="project-content">
+                <h3>Tavern</h3>
+                <p>A vibrant take on the bar website, showcasing a scrolling marquee for live music events in the tabbed menu, paired with a gritty, rustic aesthetic.</p>
+                <button @click="openImageModal(images.eastTexasTavern2)" class="project-link">View Details</button>
+              </div>
+            </article>
           </div>
-        </article>
-        <article class="project">
-          <img :src="images.cedarCreekDrywall" alt="Drywall Website Mockup" class="project-image" @error="handleImageError" />
-          <div class="project-content">
-            <h3>Drywall</h3>
-            <p>A rugged, responsive site for a sheetrock contractor, with fixed nav tabs, a drywall texture background, and real construction images.</p>
-            <button @click="openImageModal(images.cedarCreekDrywall)" class="project-link">View Details</button>
-          </div>
-        </article>
-        <article class="project">
-          <img :src="images.cedarCreekDrywall2" alt="Drywall Website Mockup" class="project-image" @error="handleImageError" />
-          <div class="project-content">
-            <h3>Drywall</h3>
-            <p>A fresh take on the sheetrock contractor site, with a unique layout and enhanced visuals for clients.</p>
-            <button @click="openImageModal(images.cedarCreekDrywall2)" class="project-link">View Details</button>
-          </div>
-        </article>
-        <article class="project">
-          <img :src="images.martinezBrosIrrigation" alt="Irrigation Website Mockup" class="project-image" @error="handleImageError" />
-          <div class="project-content">
-            <h3>Irrigation</h3>
-            <p>A responsive website for an irrigation company, featuring a fixed top navigation, lush lawn imagery, and a clean service grid for showcasing sprinkler and lawn care services.</p>
-            <button @click="openImageModal(images.martinezBrosIrrigation)" class="project-link">View Details</button>
-          </div>
-        </article>
-        <article class="project">
-          <img :src="images.martinezBrosIrrigation2" alt="Irrigation Website Mockup" class="project-image" @error="handleImageError" />
-          <div class="project-content">
-            <h3>Irrigation</h3>
-            <p>A unique take on the irrigation site with a bottom navigation bar, circular service cards, and a diagonal section tilt, showcasing a modern, dynamic layout.</p>
-            <button @click="openImageModal(images.martinezBrosIrrigation2)" class="project-link">View Details</button>
-          </div>
-        </article>
-        <article class="project">
-          <img :src="images.lakeviewCoffee" alt="Coffee Co. Website Mockup" class="project-image" @error="handleImageError" />
-          <div class="project-content">
-            <h3>Coffee Co.</h3>
-            <p>A vibrant website for a coffee shop, featuring a full-screen overlay menu with animated links, a split-screen hero with a large cozy coffee shop image, and a carousel slider for the menu.</p>
-            <button @click="openImageModal(images.lakeviewCoffee)" class="project-link">View Details</button>
-          </div>
-        </article>
-        <article class="project">
-          <img :src="images.lakeviewCoffee2" alt="Coffee Co. Website Mockup" class="project-image" @error="handleImageError" />
-          <div class="project-content">
-            <h3>Coffee Co.</h3>
-            <p>A dynamic take on the coffee shop site, emphasizing the split-screen hero with right-aligned text and a carousel showcasing artisanal coffee and pastries.</p>
-            <button @click="openImageModal(images.lakeviewCoffee2)" class="project-link">View Details</button>
-          </div>
-        </article>
-        <article class="project">
-          <img :src="images.lakeviewCoffee3" alt="Coffee Co. Website Mockup" class="project-image" @error="handleImageError" />
-          <div class="project-content">
-            <h3>Coffee Co.</h3>
-            <p>A fresh iteration of the coffee shop website, highlighting a fixed contact bar and a cozy aesthetic with a prominent background image.</p>
-            <button @click="openImageModal(images.lakeviewCoffee3)" class="project-link">View Details</button>
-          </div>
-        </article>
-        <article class="project">
-          <img :src="images.eastTexasTavern" alt="Tavern Website Mockup" class="project-image" @error="handleImageError" />
-          <div class="project-content">
-            <h3>Tavern</h3>
-            <p>A modern website for a bar, featuring a parallax scrolling hero, sticky navigation, tabbed menu for drinks and events, and a fixed social media footer.</p>
-            <button @click="openImageModal(images.eastTexasTavern)" class="project-link">View Details</button>
-          </div>
-        </article>
-        <article class="project">
-          <img :src="images.eastTexasTavern2" alt="Tavern Website Mockup" class="project-image" @error="handleImageError" />
-          <div class="project-content">
-            <h3>Tavern</h3>
-            <p>A vibrant take on the bar website, showcasing a scrolling marquee for live music events in the tabbed menu, paired with a gritty, rustic aesthetic.</p>
-            <button @click="openImageModal(images.eastTexasTavern2)" class="project-link">View Details</button>
-          </div>
-        </article>
-        <!-- Cloned projects -->
-        <article class="project">
-          <img :src="images.tylerFurniture" alt="Furniture Co. Website Mockup" class="project-image" @error="handleImageError" />
-          <div class="project-content">
-            <h3>Furniture Co.</h3>
-            <p>A bold, responsive website for a furniture store, featuring a modern hero, product grid, and sticky navigation for a premium user experience.</p>
-            <button @click="openImageModal(images.tylerFurniture)" class="project-link">View Details</button>
-          </div>
-        </article>
-        <article class="project">
-          <img :src="images.cedarCreekDrywall" alt="Drywall Website Mockup" class="project-image" @error="handleImageError" />
-          <div class="project-content">
-            <h3>Drywall</h3>
-            <p>A rugged, responsive site for a sheetrock contractor, with fixed nav tabs, a drywall texture background, and real construction images.</p>
-            <button @click="openImageModal(images.cedarCreekDrywall)" class="project-link">View Details</button>
-          </div>
-        </article>
-        <article class="project">
-          <img :src="images.cedarCreekDrywall2" alt="Drywall Website Mockup" class="project-image" @error="handleImageError" />
-          <div class="project-content">
-            <h3>Drywall</h3>
-            <p>A fresh take on the sheetrock contractor site, with a unique layout and enhanced visuals for clients.</p>
-            <button @click="openImageModal(images.cedarCreekDrywall2)" class="project-link">View Details</button>
-          </div>
-        </article>
-        <article class="project">
-          <img :src="images.martinezBrosIrrigation" alt="Irrigation Website Mockup" class="project-image" @error="handleImageError" />
-          <div class="project-content">
-            <h3>Irrigation</h3>
-            <p>A responsive website for an irrigation company, featuring a fixed top navigation, lush lawn imagery, and a clean service grid for showcasing sprinkler and lawn care services.</p>
-            <button @click="openImageModal(images.martinezBrosIrrigation)" class="project-link">View Details</button>
-          </div>
-        </article>
-        <article class="project">
-          <img :src="images.martinezBrosIrrigation2" alt="Irrigation Website Mockup" class="project-image" @error="handleImageError" />
-          <div class="project-content">
-            <h3>Irrigation</h3>
-            <p>A unique take on the irrigation site with a bottom navigation bar, circular service cards, and a diagonal section tilt, showcasing a modern, dynamic layout.</p>
-            <button @click="openImageModal(images.martinezBrosIrrigation2)" class="project-link">View Details</button>
-          </div>
-        </article>
-        <article class="project">
-          <img :src="images.lakeviewCoffee" alt="Coffee Co. Website Mockup" class="project-image" @error="handleImageError" />
-          <div class="project-content">
-            <h3>Coffee Co.</h3>
-            <p>A vibrant website for a coffee shop, featuring a full-screen overlay menu with animated links, a split-screen hero with a large cozy coffee shop image, and a carousel slider for the menu.</p>
-            <button @click="openImageModal(images.lakeviewCoffee)" class="project-link">View Details</button>
-          </div>
-        </article>
-        <article class="project">
-          <img :src="images.lakeviewCoffee2" alt="Coffee Co. Website Mockup" class="project-image" @error="handleImageError" />
-          <div class="project-content">
-            <h3>Coffee Co.</h3>
-            <p>A dynamic take on the coffee shop site, emphasizing the split-screen hero with right-aligned text and a carousel showcasing artisanal coffee and pastries.</p>
-            <button @click="openImageModal(images.lakeviewCoffee2)" class="project-link">View Details</button>
-          </div>
-        </article>
-        <article class="project">
-          <img :src="images.lakeviewCoffee3" alt="Coffee Co. Website Mockup" class="project-image" @error="handleImageError" />
-          <div class="project-content">
-            <h3>Coffee Co.</h3>
-            <p>A fresh iteration of the coffee shop website, highlighting a fixed contact bar and a cozy aesthetic with a prominent background image.</p>
-            <button @click="openImageModal(images.lakeviewCoffee3)" class="project-link">View Details</button>
-          </div>
-        </article>
-        <article class="project">
-          <img :src="images.eastTexasTavern" alt="Tavern Website Mockup" class="project-image" @error="handleImageError" />
-          <div class="project-content">
-            <h3>Tavern</h3>
-            <p>A modern website for a bar, featuring a parallax scrolling hero, sticky navigation, tabbed menu for drinks and events, and a fixed social media footer.</p>
-            <button @click="openImageModal(images.eastTexasTavern)" class="project-link">View Details</button>
-          </div>
-        </article>
-        <article class="project">
-          <img :src="images.eastTexasTavern2" alt="Tavern Website Mockup" class="project-image" @error="handleImageError" />
-          <div class="project-content">
-            <h3>Tavern</h3>
-            <p>A vibrant take on the bar website, showcasing a scrolling marquee for live music events in the tabbed menu, paired with a gritty, rustic aesthetic.</p>
-            <button @click="openImageModal(images.eastTexasTavern2)" class="project-link">View Details</button>
-          </div>
-        </article>
+          <button class="carousel-btn prev-btn">←</button>
+          <button class="carousel-btn next-btn">→</button>
+        </div>
       </div>
-      <button class="carousel-btn prev-btn">←</button>
-      <button class="carousel-btn next-btn">→</button>
+    </section>
+
+    <!-- Image Modal -->
+    <div v-if="showModal" class="modal">
+      <div class="modal-content">
+        <span class="modal-close" @click="closeImageModal">&times;</span>
+        <img :src="modalImage" alt="Enlarged Project Image" class="modal-image" />
+      </div>
     </div>
-  </div>
-</section>
 
-<!-- Image Modal -->
-<div v-if="showModal" class="modal">
-  <div class="modal-content">
-    <span class="modal-close" @click="closeImageModal">&times;</span>
-    <img :src="modalImage" alt="Enlarged Project Image" class="modal-image" />
-  </div>
-</div>
+    <!-- Contact Modal -->
+    <div v-if="showContactModal" class="modal contact-modal">
+      <div class="modal-content">
+        <span class="modal-close" @click="closeContactModal">&times;</span>
+        <h2>Let's Build Something</h2>
+        <p>Fill out the form or copy my email to get started.</p>
+        <form class="contact-form" @submit.prevent="submitContactForm">
+          <input type="text" v-model="contactForm.name" placeholder="Your Name" required />
+          <input type="email" v-model="contactForm.email" placeholder="Your Email" required />
+          <textarea v-model="contactForm.message" placeholder="Your Message" required></textarea>
+          <button type="submit" class="cta">Send Message</button>
+        </form>
+        <button @click="copyEmail" class="cta email-copy">Copy Email: armeswebsites@gmail.com</button>
+      </div>
+    </div>
 
-<!-- Contact Modal -->
-<div v-if="showContactModal" class="modal contact-modal">
-  <div class="modal-content">
-    <span class="modal-close" @click="closeContactModal">&times;</span>
-    <h2>Let's Build Something</h2>
-    <p>Fill out the form or copy my email to get started.</p>
-    <form class="contact-form" @submit.prevent="submitContactForm">
-      <input type="text" v-model="contactForm.name" placeholder="Your Name" required />
-      <input type="email" v-model="contactForm.email" placeholder="Your Email" required />
-      <textarea v-model="contactForm.message" placeholder="Your Message" required></textarea>
-      <button type="submit" class="cta">Send Message</button>
-    </form>
-    <button @click="copyEmail" class="cta email-copy">Copy Email: armeswebsites@gmail.com</button>
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+      <div class="container">
+        <h2>Ready to Start?</h2>
+        <p>Contact me to bring your website vision to life.</p>
+        <button @click="openContactModal" class="cta">Get in Touch</button>
+        <div class="footer-logo">
+          <img :src="images.webRousersLogo" alt="Web Rousers Footer Logo" class="footer-logo-img" @error="handleImageError" />
+        </div>
+      </div>
+    </section>
   </div>
-</div>
-
-<!-- Contact Section -->
-<section class="contact" id="contact">
-  <div class="container">
-    <h2>Ready to Start?</h2>
-    <p>Contact me to bring your website vision to life.</p>
-    <button @click="openContactModal" class="cta">Get in Touch</button>
-  </div>
-</section>  </div>
 </template>
 
 <script>
@@ -282,6 +293,7 @@ import lakeviewCoffee2 from '@/assets/lakeview-coffee-2.jpg';
 import lakeviewCoffee3 from '@/assets/lakeview-coffee-3.jpg';
 import eastTexasTavern from '@/assets/east-texas-tavern.jpg';
 import eastTexasTavern2 from '@/assets/east-texas-tavern-2.jpg';
+import webRousersLogo from '@/assets/web-rousers-logo-2.png';
 
 export default {
   data() {
@@ -305,6 +317,7 @@ export default {
         lakeviewCoffee3,
         eastTexasTavern,
         eastTexasTavern2,
+        webRousersLogo,
       },
     };
   },
@@ -320,15 +333,19 @@ export default {
       }
     },
     handleImageError(event) {
-      event.target.src = 'https://placehold.co/600x300/1A1A1A/FFFFFF?text=Project+Coming+Soon&font=montserrat';
+      if (event.target.classList.contains('header-logo') || event.target.classList.contains('footer-logo-img')) {
+        event.target.src = 'https://placehold.co/150x60/2F4F2F/F5F5DC?text=Logo+Error&font=montserrat';
+      } else {
+        event.target.src = 'https://placehold.co/600x300/2F4F2F/F5F5DC?text=Project+Coming+Soon&font=montserrat';
+      }
     },
     initCarousel() {
       const track = document.querySelector('.carousel-track');
       const items = document.querySelectorAll('.project');
       const prevBtn = document.querySelector('.prev-btn');
       const nextBtn = document.querySelector('.next-btn');
-      const totalItems = items.length / 2; // 10 original projects
-      let currentIndex = 1; // Start at first original project
+      const totalItems = items.length / 2;
+      let currentIndex = 1;
 
       function updateCarousel(transition = true) {
         track.style.transition = transition ? 'transform 0.5s ease' : 'none';
@@ -342,7 +359,7 @@ export default {
           setTimeout(() => {
             currentIndex = 1;
             updateCarousel(false);
-          }, 500); // Match transition duration
+          }, 500);
         }
       });
 
@@ -353,11 +370,10 @@ export default {
           setTimeout(() => {
             currentIndex = totalItems;
             updateCarousel(false);
-          }, 500); // Match transition duration
+          }, 500);
         }
       });
 
-      // Auto-scroll
       let autoScrollInterval = setInterval(() => {
         currentIndex++;
         updateCarousel();
@@ -365,9 +381,8 @@ export default {
           currentIndex = 1;
           updateCarousel(false);
         }
-      }, 3000); // 3 seconds per slide
+      }, 3000);
 
-      // Pause on hover
       track.parentElement.addEventListener('mouseenter', () => clearInterval(autoScrollInterval));
       track.parentElement.addEventListener('mouseleave', () => {
         autoScrollInterval = setInterval(() => {
@@ -381,7 +396,7 @@ export default {
       });
 
       this.$nextTick(() => {
-        updateCarousel(false); // Initial position without transition
+        updateCarousel(false);
       });
     },
     initServicesCarousel() {
@@ -389,8 +404,8 @@ export default {
       const items = document.querySelectorAll('.service-card');
       const prevBtn = document.querySelector('.service-prev-btn');
       const nextBtn = document.querySelector('.service-next-btn');
-      const totalItems = items.length / 2; // 3 original cards
-      let currentIndex = 1; // Start at first original card
+      const totalItems = items.length / 2;
+      let currentIndex = 1;
 
       function updateCarousel(transition = true) {
         track.style.transition = transition ? 'transform 0.7s ease' : 'none';
@@ -404,7 +419,7 @@ export default {
           setTimeout(() => {
             currentIndex = 1;
             updateCarousel(false);
-          }, 700); // Match transition duration
+          }, 700);
         }
       });
 
@@ -415,11 +430,10 @@ export default {
           setTimeout(() => {
             currentIndex = totalItems;
             updateCarousel(false);
-          }, 700); // Match transition duration
+          }, 700);
         }
       });
 
-      // Auto-scroll
       let autoScrollInterval = setInterval(() => {
         currentIndex++;
         updateCarousel();
@@ -427,9 +441,8 @@ export default {
           currentIndex = 1;
           updateCarousel(false);
         }
-      }, 3000); // 3 seconds per slide
+      }, 3000);
 
-      // Pause on hover
       track.parentElement.addEventListener('mouseenter', () => clearInterval(autoScrollInterval));
       track.parentElement.addEventListener('mouseleave', () => {
         autoScrollInterval = setInterval(() => {
@@ -443,7 +456,7 @@ export default {
       });
 
       this.$nextTick(() => {
-        updateCarousel(false); // Initial position without transition
+        updateCarousel(false);
       });
     },
     openImageModal(image) {
@@ -462,7 +475,7 @@ export default {
       this.contactForm = { name: '', email: '', message: '' };
     },
     submitContactForm() {
-      alert('Form submitted! I’ll get back to you soon.');
+      alert('Form submitted! I\'ll get back to you soon.');
       this.closeContactModal();
     },
   },
@@ -478,7 +491,6 @@ export default {
 .home {
   scroll-behavior: smooth;
   font-family: 'Montserrat', sans-serif;
-  background: var(--background);
   color: var(--text);
 }
 
@@ -486,41 +498,73 @@ export default {
 .header {
   text-align: center;
   padding: 20px 0;
-  background: var(--background);
-}
-.header h1 {
-  font-size: 3rem;
-  font-weight: 700;
-  color: var(--primary);
-  text-transform: uppercase;
-  margin: 0;
-  letter-spacing: 2px;
-  transition: color 0.3s ease;
-}
-.header h1:hover {
-  color: var(--secondary);
-}
-.nav {
+  background: rgba(255, 255, 255, 0.7);
   display: flex;
   justify-content: center;
-  gap: 20px;
-  margin-top: 10px;
+  align-items: center;
 }
+
+.header-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  max-width: 1200px;
+  width: 100%;
+}
+
+.logo-link {
+  display: inline-block;
+  text-decoration: none;
+}
+
+.header-logo {
+  max-height: 280px;
+  width: auto;
+  filter: hue-rotate(350deg) saturate(3) brightness(1.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  animation: logoFadeIn 1s ease-in;
+}
+
+.header-logo:hover {
+  transform: scale(1.1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.nav {
+  display: flex;
+  gap: 10px;
+}
+
+.nav-left, .nav-right {
+  display: flex;
+  gap: 10px;
+}
+
 .nav a {
   color: var(--text);
   text-decoration: none;
   font-weight: bold;
-  transition: color 0.3s;
-}
-.nav a:hover {
-  color: var(--primary);
+  font-size: 1.3rem;
+  background: #FFD700;
+  color: #2F4F2F;
+  padding: 12px 20px;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  margin: 0 5px;
 }
 
-/* Container */
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 20px;
+.nav a:hover {
+  background: #FFA500;
+  transform: scale(1.05);
+  color: white;
+}
+
+/* Logo Fade-in Animation */
+@keyframes logoFadeIn {
+  from { opacity: 0; transform: scale(0.8); }
+  to { opacity: 1; transform: scale(1); }
 }
 
 /* Hero Section */
@@ -529,13 +573,31 @@ export default {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: var(--background);
   text-align: center;
+  position: relative;
+  overflow: hidden;
   animation: fadeIn 1s ease-in;
 }
-.hero-content {
-  padding: 40px;
+
+.hero-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(47, 79, 47, 0.5);
+  z-index: 1;
 }
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  padding: 40px;
+  background: rgba(47, 79, 47, 0.9);
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
 .hero h1 {
   font-size: 4rem;
   font-weight: 700;
@@ -543,11 +605,13 @@ export default {
   color: var(--text);
   text-transform: uppercase;
 }
+
 .hero p {
   font-size: 1.5rem;
   margin-bottom: 30px;
   color: var(--text);
 }
+
 .cta {
   display: inline-block;
   padding: 12px 24px;
@@ -560,6 +624,7 @@ export default {
   cursor: pointer;
   transition: transform 0.3s, background 0.3s;
 }
+
 .cta:hover {
   background: var(--accent);
   transform: scale(1.05);
@@ -576,29 +641,34 @@ export default {
   padding: 80px 20px;
   background: var(--text);
 }
+
 .about h2 {
   font-size: 2.5rem;
   margin-bottom: 20px;
   color: var(--background);
   text-transform: uppercase;
 }
+
 .about-intro {
   font-size: 1.2rem;
   color: var(--background);
   margin-bottom: 40px;
 }
+
 .services-carousel {
   position: relative;
   overflow: hidden;
   max-width: 600px;
   margin: 0 auto;
 }
+
 .services-track {
   display: flex;
-  width: 600%; /* 6 cards (3 original + 3 clones) */
+  width: 600%;
 }
+
 .service-card {
-  flex: 0 0 16.6667%; /* 100% / 6 */
+  flex: 0 0 16.6667%;
   background: var(--background);
   padding: 20px;
   border-radius: 10px;
@@ -606,18 +676,22 @@ export default {
   box-sizing: border-box;
   transition: border 0.3s;
 }
+
 .service-card:hover {
   border: 2px solid var(--primary);
 }
+
 .service-card h3 {
   font-size: 1.5rem;
   margin-bottom: 10px;
   color: var(--secondary);
 }
+
 .service-card p {
   font-size: 1rem;
   color: var(--text);
 }
+
 .carousel-btn {
   position: absolute;
   top: 50%;
@@ -631,12 +705,15 @@ export default {
   border-radius: 50%;
   transition: background 0.3s;
 }
+
 .carousel-btn:hover {
   background: var(--accent);
 }
+
 .service-prev-btn {
   left: 10px;
 }
+
 .service-next-btn {
   right: 10px;
 }
@@ -644,8 +721,9 @@ export default {
 /* Portfolio Section */
 .portfolio {
   padding: 80px 20px;
-  background: var(--background);
+  background: rgba(47, 79, 47, 0.85);
 }
+
 .portfolio h2 {
   text-align: center;
   font-size: 2.5rem;
@@ -653,24 +731,26 @@ export default {
   color: var(--text);
   text-transform: uppercase;
 }
+
 .portfolio-intro {
   text-align: center;
   font-size: 1rem;
   color: var(--text);
   margin-bottom: 40px;
 }
+
 .carousel {
   position: relative;
   overflow: hidden;
 }
+
 .carousel-track {
   display: flex;
-  width: 2000%; /* 20 projects (10 original + 10 clones) */
-  animation-play-state: running; /* Default for auto-scroll */
-  animation-play-state: var(--auto-scroll-pause, running);
+  width: 2000%;
 }
+
 .project {
-  flex: 0 0 5%; /* 100% / 20 */
+  flex: 0 0 5%;
   display: flex;
   align-items: center;
   background: var(--background);
@@ -679,29 +759,35 @@ export default {
   overflow: hidden;
   transition: transform 0.3s, border 0.3s;
 }
+
 .project:hover {
   transform: translateY(-5px);
   border: 2px solid var(--primary);
 }
+
 .project-image {
   width: 50%;
   height: 300px;
   object-fit: cover;
 }
+
 .project-content {
   width: 50%;
   padding: 30px;
 }
+
 .project h3 {
   font-size: 1.8rem;
   margin-bottom: 10px;
   color: var(--text);
 }
+
 .project p {
   color: var(--text);
   line-height: 1.5;
   margin-bottom: 10px;
 }
+
 .project-link {
   display: inline-block;
   padding: 8px 16px;
@@ -713,27 +799,32 @@ export default {
   cursor: pointer;
   transition: background 0.3s, transform 0.3s;
 }
+
 .project-link:hover {
   background: var(--accent);
   transform: scale(1.05);
 }
+
 .carousel-btn.prev-btn {
   left: 10px;
   opacity: 0;
   pointer-events: none;
   transition: opacity 0.3s ease;
 }
+
 .carousel-btn.next-btn {
   right: 10px;
   opacity: 0;
   pointer-events: none;
   transition: opacity 0.3s ease;
 }
+
 .carousel:hover .carousel-btn.prev-btn,
 .carousel:hover .carousel-btn.next-btn {
   opacity: 1;
   pointer-events: auto;
 }
+
 @media (hover: none) {
   .carousel-btn.prev-btn,
   .carousel-btn.next-btn {
@@ -755,17 +846,20 @@ export default {
   align-items: center;
   z-index: 1000;
 }
+
 .modal-content {
   position: relative;
   max-width: 80vw;
   max-height: 80vh;
 }
+
 .modal-image {
   width: 100%;
   height: auto;
   border-radius: 10px;
   border: 2px solid var(--secondary);
 }
+
 .modal-close {
   position: absolute;
   top: -30px;
@@ -775,9 +869,11 @@ export default {
   cursor: pointer;
   transition: color 0.3s;
 }
+
 .modal-close:hover {
   color: var(--primary);
 }
+
 .contact-modal .modal-content {
   background: var(--text);
   padding: 40px;
@@ -785,22 +881,26 @@ export default {
   text-align: center;
   border: 2px solid var(--secondary);
 }
+
 .contact-modal h2 {
   font-size: 2rem;
   margin-bottom: 20px;
   color: var(--background);
 }
+
 .contact-modal p {
   font-size: 1.1rem;
   color: var(--background);
   margin-bottom: 20px;
 }
+
 .contact-form {
   display: flex;
   flex-direction: column;
   gap: 15px;
   margin-bottom: 20px;
 }
+
 .contact-form input,
 .contact-form textarea {
   padding: 10px;
@@ -810,14 +910,17 @@ export default {
   background: var(--text);
   color: var(--background);
 }
+
 .contact-form textarea {
   height: 100px;
   resize: none;
 }
+
 .email-copy {
   margin-top: 10px;
   background: var(--primary);
 }
+
 .email-copy:hover {
   background: var(--accent);
 }
@@ -825,28 +928,52 @@ export default {
 /* Contact Section */
 .contact {
   padding: 80px 20px;
-  background: var(--background);
+  background: rgba(47, 79, 47, 0.85);
 }
+
 .contact h2 {
   font-size: 2.5rem;
   margin-bottom: 20px;
   color: var(--text);
   text-transform: uppercase;
 }
+
 .contact p {
   font-size: 1.2rem;
   margin-bottom: 30px;
   color: var(--text);
 }
 
+.footer-logo {
+  margin-top: 20px;
+}
+
+.footer-logo-img {
+  max-height: 160px;
+  width: auto;
+  filter: hue-rotate(350deg) saturate(3) brightness(1.3);
+  transition: transform 0.3s ease;
+}
+
+.footer-logo-img:hover {
+  transform: scale(1.05);
+}
+
 /* Responsive */
 @media (max-width: 768px) {
-  .header h1 {
-    font-size: 2rem;
-  }
-  .nav {
+  .header-container {
     flex-direction: column;
     gap: 10px;
+  }
+  .nav-left, .nav-right {
+    justify-content: center;
+    gap: 10px;
+  }
+  .header-logo {
+    max-height: 200px;
+  }
+  .nav a {
+    font-size: 1rem;
   }
   .hero h1 {
     font-size: 2.5rem;
@@ -856,6 +983,13 @@ export default {
   }
   .hero {
     height: 70vh;
+  }
+  .hero-background {
+    background: rgba(47, 79, 47, 0.6);
+  }
+  .hero-content {
+    padding: 20px;
+    background: rgba(47, 79, 47, 0.9);
   }
   .about h2 {
     font-size: 2rem;
@@ -899,6 +1033,9 @@ export default {
   .contact h2 {
     font-size: 2rem;
   }
+  .footer-logo-img {
+    max-height: 120px;
+  }
   .modal-content {
     max-width: 90vw;
   }
@@ -909,4 +1046,3 @@ export default {
   }
 }
 </style>
-

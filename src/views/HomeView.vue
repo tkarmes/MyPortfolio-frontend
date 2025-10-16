@@ -1,4 +1,4 @@
-<!-- Home.vue -->
+<!-- Home.vue - SIMPLIFIED CONTACT READY -->
 <template>
   <div class="home">
     <!-- Header Section with Navigation -->
@@ -22,17 +22,17 @@
     <section class="hero" id="home">
       <div class="hero-background"></div>
       <div class="hero-content">
-        <h1>You Want It. I Build It.</h1>
+        <h1>You Want It. We Build It.</h1>
         <p>Custom, responsive websites tailored for your business—built to grow your brand.</p>
-        <button @click="openContactModal" class="cta">Get a Free Quote</button>
+        <button @click="clickCTA" class="cta">Get a Free Quote</button>
       </div>
     </section>
 
     <!-- About/Services Section -->
     <section class="about" id="about">
       <div class="container">
-        <h2>What I Build</h2>
-        <p class="about-intro">I craft clean, user-friendly websites for businesses.</p>
+        <h2>What We Build</h2>
+        <p class="about-intro">We craft clean, user-friendly websites for businesses.</p>
         <div class="services-carousel">
           <div class="services-track">
             <!-- Original cards -->
@@ -71,8 +71,8 @@
     <!-- Portfolio Section -->
     <section class="portfolio" id="portfolio">
       <div class="container">
-        <h2>My Work</h2>
-        <p class="portfolio-intro">Click the arrows to explore my business websites.</p>
+        <h2>Our Work</h2>
+        <p class="portfolio-intro">Click the arrows to explore our business websites.</p>
         <div class="carousel">
           <div class="carousel-track">
             <!-- Original projects -->
@@ -252,19 +252,28 @@
       </div>
     </div>
 
-    <!-- Contact Modal -->
+    <!-- Contact Modal - SIMPLIFIED -->
     <div v-if="showContactModal" class="modal contact-modal">
       <div class="modal-content">
         <span class="modal-close" @click="closeContactModal">&times;</span>
         <h2>Let's Build Something</h2>
-        <p>Fill out the form or copy my email to get started.</p>
-        <form class="contact-form" @submit.prevent="submitContactForm">
-          <input type="text" v-model="contactForm.name" placeholder="Your Name" required />
-          <input type="email" v-model="contactForm.email" placeholder="Your Email" required />
-          <textarea v-model="contactForm.message" placeholder="Your Message" required></textarea>
-          <button type="submit" class="cta">Send Message</button>
-        </form>
-        <button @click="copyEmail" class="cta email-copy">Copy Email: armeswebsites@gmail.com</button>
+        <div class="contact-info">
+          <div class="contact-item">
+            <span class="contact-icon">📧</span>
+            <div>
+              <strong>Email:</strong><br>
+              <span class="copyable">armeswebsites@gmail.com</span>
+            </div>
+          </div>
+          <div class="contact-item">
+            <span class="contact-icon">📱</span>
+            <div>
+              <strong>Phone:</strong><br>
+              <span class="copyable">(214) 548-3544</span>
+            </div>
+          </div>
+        </div>
+        <p class="contact-note">Just copy & paste to email/text us!</p>
       </div>
     </div>
 
@@ -272,8 +281,8 @@
     <section class="contact" id="contact">
       <div class="container">
         <h2>Ready to Start?</h2>
-        <p>Contact me to bring your website vision to life.</p>
-        <button @click="openContactModal" class="cta">Get in Touch</button>
+        <p>Contact us to bring your website vision to life.</p>
+        <button @click="clickCTA" class="cta">Get in Touch</button>
         <div class="footer-logo">
           <img :src="images.webRousersLogo" alt="Web Rousers Footer Logo" class="footer-logo-img" @error="handleImageError" />
         </div>
@@ -301,11 +310,6 @@ export default {
       showModal: false,
       modalImage: '',
       showContactModal: false,
-      contactForm: {
-        name: '',
-        email: '',
-        message: '',
-      },
       images: {
         tylerFurniture,
         cedarCreekDrywall,
@@ -322,15 +326,16 @@ export default {
     };
   },
   methods: {
-    async copyEmail() {
-      const email = 'armeswebsites@gmail.com';
-      try {
-        await navigator.clipboard.writeText(email);
-        alert('Email copied! Paste it into your client to chat about your project.');
-      } catch (err) {
-        console.error('Copy failed:', err);
-        alert('Copy failed—select and copy manually.');
-      }
+    clickCTA() {
+      confetti({
+        particleCount: 100,
+        spread: 70,
+        origin: { y: 0.6 },
+        colors: ['#FFD700', '#FFA500', '#FF6347']
+      });
+      setTimeout(() => {
+        this.openContactModal();
+      }, 500);
     },
     handleImageError(event) {
       if (event.target.classList.contains('header-logo') || event.target.classList.contains('footer-logo-img')) {
@@ -339,6 +344,7 @@ export default {
         event.target.src = 'https://placehold.co/600x300/2F4F2F/F5F5DC?text=Project+Coming+Soon&font=montserrat';
       }
     },
+
     initCarousel() {
       const track = document.querySelector('.carousel-track');
       const items = document.querySelectorAll('.project');
@@ -399,6 +405,7 @@ export default {
         updateCarousel(false);
       });
     },
+
     initServicesCarousel() {
       const track = document.querySelector('.services-track');
       const items = document.querySelectorAll('.service-card');
@@ -459,30 +466,29 @@ export default {
         updateCarousel(false);
       });
     },
+
     openImageModal(image) {
       this.modalImage = image;
       this.showModal = true;
     },
+
     closeImageModal() {
       this.showModal = false;
       this.modalImage = '';
     },
+
     openContactModal() {
       this.showContactModal = true;
     },
+
     closeContactModal() {
       this.showContactModal = false;
-      this.contactForm = { name: '', email: '', message: '' };
-    },
-    submitContactForm() {
-      alert('Form submitted! I\'ll get back to you soon.');
-      this.closeContactModal();
-    },
+    }
   },
   mounted() {
     this.initCarousel();
     this.initServicesCarousel();
-  },
+  }
 };
 </script>
 
@@ -522,26 +528,18 @@ export default {
   max-height: 280px;
   width: auto;
   filter: hue-rotate(350deg) saturate(3) brightness(1.3);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: all 0.3s ease;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
-  animation: logoFadeIn 1s ease-in;
+  animation: logoFadeIn 1s ease-in, logoGlow 2s ease-in-out infinite alternate;
 }
 
 .header-logo:hover {
   transform: scale(1.1);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  filter: hue-rotate(350deg) saturate(3) brightness(1.5) drop-shadow(0 0 20px #FFD700);
+  box-shadow: 0 0 30px rgba(255, 215, 0, 0.6);
 }
 
-.nav {
-  display: flex;
-  gap: 10px;
-}
-
-.nav-left, .nav-right {
-  display: flex;
-  gap: 10px;
-}
-
+/* 🔥 NEW: PULSING NAV TABS */
 .nav a {
   color: var(--text);
   text-decoration: none;
@@ -553,21 +551,33 @@ export default {
   border-radius: 8px;
   transition: all 0.3s ease;
   margin: 0 5px;
+  animation: navPulse 2s ease-in-out infinite;
 }
 
 .nav a:hover {
   background: #FFA500;
   transform: scale(1.05);
   color: white;
+  box-shadow: 0 0 20px rgba(255, 165, 0, 0.8);
 }
 
-/* Logo Fade-in Animation */
+@keyframes navPulse {
+  0%, 100% { box-shadow: 0 0 5px rgba(255, 215, 0, 0.5); }
+  50% { box-shadow: 0 0 15px rgba(255, 215, 0, 0.8); }
+}
+
+/* Logo Animations */
 @keyframes logoFadeIn {
   from { opacity: 0; transform: scale(0.8); }
   to { opacity: 1; transform: scale(1); }
 }
 
-/* Hero Section */
+@keyframes logoGlow {
+  from { filter: hue-rotate(350deg) saturate(3) brightness(1.3); }
+  to { filter: hue-rotate(350deg) saturate(3) brightness(1.4); }
+}
+
+/* 🔥 PARALLAX HERO */
 .hero {
   height: 80vh;
   display: flex;
@@ -585,7 +595,9 @@ export default {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(47, 79, 47, 0.5);
+  background: linear-gradient(rgba(47,79,47,0.7), rgba(47,79,47,0.3)), 
+              url('https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80') center/cover;
+  background-attachment: fixed; /* 🔥 PARALLAX */
   z-index: 1;
 }
 
@@ -622,15 +634,16 @@ export default {
   border-radius: 5px;
   font-weight: bold;
   cursor: pointer;
-  transition: transform 0.3s, background 0.3s;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(255, 215, 0, 0.4);
 }
 
 .cta:hover {
   background: var(--accent);
-  transform: scale(1.05);
+  transform: scale(1.02); /* TINY scale = INSTANT click */
+  box-shadow: 0 8px 25px rgba(255, 165, 0, 0.6);
 }
 
-/* Fade-in Animation */
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(20px); }
   to { opacity: 1; transform: translateY(0); }
@@ -674,11 +687,12 @@ export default {
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
   box-sizing: border-box;
-  transition: border 0.3s;
+  transition: all 0.3s ease;
 }
 
 .service-card:hover {
   border: 2px solid var(--primary);
+  transform: translateY(-5px);
 }
 
 .service-card h3 {
@@ -703,22 +717,19 @@ export default {
   cursor: pointer;
   font-size: 1.5rem;
   border-radius: 50%;
-  transition: background 0.3s;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
 }
 
 .carousel-btn:hover {
   background: var(--accent);
+  transform: translateY(-50%) scale(1.2);
 }
 
-.service-prev-btn {
-  left: 10px;
-}
+.service-prev-btn { left: 10px; }
+.service-next-btn { right: 10px; }
 
-.service-next-btn {
-  right: 10px;
-}
-
-/* Portfolio Section */
+/* 🔥 3D PORTFOLIO TILT */
 .portfolio {
   padding: 80px 20px;
   background: rgba(47, 79, 47, 0.85);
@@ -739,15 +750,9 @@ export default {
   margin-bottom: 40px;
 }
 
-.carousel {
-  position: relative;
-  overflow: hidden;
-}
+.carousel { position: relative; overflow: hidden; }
 
-.carousel-track {
-  display: flex;
-  width: 2000%;
-}
+.carousel-track { display: flex; width: 2000%; }
 
 .project {
   flex: 0 0 5%;
@@ -757,11 +762,13 @@ export default {
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
   overflow: hidden;
-  transition: transform 0.3s, border 0.3s;
+  transition: all 0.4s ease;
+  transform-style: preserve-3d;
 }
 
 .project:hover {
-  transform: translateY(-5px);
+  transform: translateY(-10px) rotateX(5deg) rotateY(5deg);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.4);
   border: 2px solid var(--primary);
 }
 
@@ -769,6 +776,11 @@ export default {
   width: 50%;
   height: 300px;
   object-fit: cover;
+  transition: all 0.3s ease;
+}
+
+.project:hover .project-image {
+  transform: scale(1.05);
 }
 
 .project-content {
@@ -797,7 +809,7 @@ export default {
   border-radius: 5px;
   font-weight: bold;
   cursor: pointer;
-  transition: background 0.3s, transform 0.3s;
+  transition: all 0.3s ease;
 }
 
 .project-link:hover {
@@ -809,14 +821,14 @@ export default {
   left: 10px;
   opacity: 0;
   pointer-events: none;
-  transition: opacity 0.3s ease;
+  transition: all 0.3s ease;
 }
 
 .carousel-btn.next-btn {
   right: 10px;
   opacity: 0;
   pointer-events: none;
-  transition: opacity 0.3s ease;
+  transition: all 0.3s ease;
 }
 
 .carousel:hover .carousel-btn.prev-btn,
@@ -833,7 +845,7 @@ export default {
   }
 }
 
-/* Modal (Image and Contact) */
+/* Modal */
 .modal {
   position: fixed;
   top: 0;
@@ -867,19 +879,28 @@ export default {
   font-size: 2rem;
   color: var(--secondary);
   cursor: pointer;
-  transition: color 0.3s;
+  transition: all 0.3s ease;
 }
 
 .modal-close:hover {
   color: var(--primary);
+  transform: rotate(90deg);
 }
 
+/* 🔥 SIMPLIFIED CONTACT MODAL */
 .contact-modal .modal-content {
   background: var(--text);
   padding: 40px;
   border-radius: 10px;
   text-align: center;
   border: 2px solid var(--secondary);
+  animation: modalSlideIn 0.3s ease;
+  max-width: 400px;
+}
+
+@keyframes modalSlideIn {
+  from { transform: scale(0.8); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
 }
 
 .contact-modal h2 {
@@ -888,41 +909,56 @@ export default {
   color: var(--background);
 }
 
-.contact-modal p {
-  font-size: 1.1rem;
-  color: var(--background);
-  margin-bottom: 20px;
+.contact-info {
+  margin: 30px 0;
+  text-align: left;
 }
 
-.contact-form {
+.contact-item {
   display: flex;
-  flex-direction: column;
+  align-items: center;
   gap: 15px;
   margin-bottom: 20px;
+  padding: 15px;
+  background: rgba(47, 79, 47, 0.1);
+  border-radius: 8px;
+  border-left: 4px solid var(--primary);
 }
 
-.contact-form input,
-.contact-form textarea {
-  padding: 10px;
-  border: 1px solid var(--background);
-  border-radius: 5px;
-  font-size: 1rem;
-  background: var(--text);
+.contact-icon {
+  font-size: 1.5rem;
+  flex-shrink: 0;
+}
+
+.contact-item strong {
   color: var(--background);
+  font-size: 0.9rem;
+  display: block;
+  margin-bottom: 5px;
 }
 
-.contact-form textarea {
-  height: 100px;
-  resize: none;
+.copyable {
+  color: var(--secondary);
+  font-size: 1.2rem;
+  font-weight: bold;
+  font-family: 'Courier New', monospace;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 5px 8px;
+  border-radius: 4px;
+  cursor: text;
+  user-select: all; /* Makes it SUPER easy to select/copy */
 }
 
-.email-copy {
-  margin-top: 10px;
-  background: var(--primary);
+.copyable:hover {
+  background: rgba(255, 215, 0, 0.1);
+  border: 1px solid var(--primary);
 }
 
-.email-copy:hover {
-  background: var(--accent);
+.contact-note {
+  font-size: 1rem;
+  color: var(--background);
+  margin-top: 20px;
+  font-style: italic;
 }
 
 /* Contact Section */
@@ -952,97 +988,38 @@ export default {
   max-height: 160px;
   width: auto;
   filter: hue-rotate(350deg) saturate(3) brightness(1.3);
-  transition: transform 0.3s ease;
+  transition: all 0.3s ease;
+  animation: logoGlow 2s ease-in-out infinite alternate;
 }
 
 .footer-logo-img:hover {
   transform: scale(1.05);
+  filter: hue-rotate(350deg) saturate(3) brightness(1.5) drop-shadow(0 0 20px #FFD700);
 }
 
 /* Responsive */
 @media (max-width: 768px) {
-  .header-container {
-    flex-direction: column;
-    gap: 10px;
+  .header-container { flex-direction: column; gap: 10px; }
+  .nav-left, .nav-right { justify-content: center; gap: 10px; }
+  .header-logo { max-height: 200px; }
+  .nav a { font-size: 1rem; }
+  .hero h1 { font-size: 2.5rem; }
+  .hero p { font-size: 1.2rem; }
+  .hero { height: 70vh; }
+  .hero-background { background-attachment: scroll; } /* No parallax on mobile */
+  .hero-content { padding: 20px; }
+  .about h2, .portfolio h2, .contact h2 { font-size: 2rem; }
+  .services-carousel { max-width: 100%; }
+  .service-prev-btn { left: 5px; }
+  .service-next-btn { right: 5px; }
+  .project { flex-direction: column; }
+  .project-image { width: 100%; height: 200px; }
+  .project-content { width: 100%; padding: 20px; }
+  .carousel-btn.prev-btn, .carousel-btn.next-btn { 
+    left: 5px; right: 5px; opacity: 1; pointer-events: auto; 
   }
-  .nav-left, .nav-right {
-    justify-content: center;
-    gap: 10px;
-  }
-  .header-logo {
-    max-height: 200px;
-  }
-  .nav a {
-    font-size: 1rem;
-  }
-  .hero h1 {
-    font-size: 2.5rem;
-  }
-  .hero p {
-    font-size: 1.2rem;
-  }
-  .hero {
-    height: 70vh;
-  }
-  .hero-background {
-    background: rgba(47, 79, 47, 0.6);
-  }
-  .hero-content {
-    padding: 20px;
-    background: rgba(47, 79, 47, 0.9);
-  }
-  .about h2 {
-    font-size: 2rem;
-  }
-  .services-carousel {
-    max-width: 100%;
-  }
-  .service-prev-btn {
-    left: 5px;
-  }
-  .service-next-btn {
-    right: 5px;
-  }
-  .service-card {
-    flex: 0 0 16.6667%;
-  }
-  .portfolio h2 {
-    font-size: 2rem;
-  }
-  .project {
-    flex-direction: column;
-  }
-  .project-image {
-    width: 100%;
-    height: 200px;
-  }
-  .project-content {
-    width: 100%;
-    padding: 20px;
-  }
-  .carousel-btn.prev-btn {
-    left: 5px;
-    opacity: 1;
-    pointer-events: auto;
-  }
-  .carousel-btn.next-btn {
-    right: 5px;
-    opacity: 1;
-    pointer-events: auto;
-  }
-  .contact h2 {
-    font-size: 2rem;
-  }
-  .footer-logo-img {
-    max-height: 120px;
-  }
-  .modal-content {
-    max-width: 90vw;
-  }
-  .modal-close {
-    top: -20px;
-    right: -20px;
-    font-size: 1.5rem;
-  }
+  .footer-logo-img { max-height: 120px; }
+  .modal-content { max-width: 90vw; }
+  .modal-close { top: -20px; right: -20px; font-size: 1.5rem; }
 }
 </style>

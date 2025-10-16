@@ -817,18 +817,31 @@ export default {
   transform: scale(1.05);
 }
 
+/* 🔥 FIXED PORTFOLIO ARROWS */
 .carousel-btn.prev-btn {
-  left: 10px;
+  left: 5px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 40px !important;
+  height: 40px !important;
+  font-size: 1rem !important;
   opacity: 0;
   pointer-events: none;
   transition: all 0.3s ease;
+  z-index: 10;
 }
 
 .carousel-btn.next-btn {
-  right: 10px;
+  right: 5px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 40px !important;
+  height: 40px !important;
+  font-size: 1rem !important;
   opacity: 0;
   pointer-events: none;
   transition: all 0.3s ease;
+  z-index: 10;
 }
 
 .carousel:hover .carousel-btn.prev-btn,
@@ -840,8 +853,11 @@ export default {
 @media (hover: none) {
   .carousel-btn.prev-btn,
   .carousel-btn.next-btn {
-    opacity: 1;
+    opacity: 0.7;
     pointer-events: auto;
+    width: 35px !important;
+    height: 35px !important;
+    font-size: 0.9rem !important;
   }
 }
 
@@ -874,12 +890,13 @@ export default {
 
 .modal-close {
   position: absolute;
-  top: -30px;
-  right: -30px;
+  top: 10px;
+  right: 10px;
   font-size: 2rem;
   color: var(--secondary);
   cursor: pointer;
   transition: all 0.3s ease;
+  z-index: 1001;
 }
 
 .modal-close:hover {
@@ -997,7 +1014,7 @@ export default {
   filter: hue-rotate(350deg) saturate(3) brightness(1.5) drop-shadow(0 0 20px #FFD700);
 }
 
-/* Responsive */
+/* 🔥 MOBILE PERFECTION - ARROWS FIXED FOREVER */
 @media (max-width: 768px) {
   .header-container { flex-direction: column; gap: 10px; }
   .nav-left, .nav-right { justify-content: center; gap: 10px; }
@@ -1006,7 +1023,7 @@ export default {
   .hero h1 { font-size: 2.5rem; }
   .hero p { font-size: 1.2rem; }
   .hero { height: 70vh; }
-  .hero-background { background-attachment: scroll; } /* No parallax on mobile */
+  .hero-background { background-attachment: scroll; }
   .hero-content { padding: 20px; }
   .about h2, .portfolio h2, .contact h2 { font-size: 2rem; }
   .services-carousel { max-width: 100%; }
@@ -1015,11 +1032,26 @@ export default {
   .project { flex-direction: column; }
   .project-image { width: 100%; height: 200px; }
   .project-content { width: 100%; padding: 20px; }
-  .carousel-btn.prev-btn, .carousel-btn.next-btn { 
-    left: 5px; right: 5px; opacity: 1; pointer-events: auto; 
-  }
   .footer-logo-img { max-height: 120px; }
-  .modal-content { max-width: 90vw; }
-  .modal-close { top: -20px; right: -20px; font-size: 1.5rem; }
+  .modal-content { max-width: 95vw; }
+  .modal-close { top: 10px !important; right: 10px !important; font-size: 2rem !important; }
+  .contact-modal .modal-content { max-width: 95vw !important; padding: 20px !important; margin: 10px !important; }
+  /* 🔥 ARROWS PERFECT: LEFT← RIGHT→ NO COVER TEXT */
+  .carousel-btn.prev-btn { 
+    left: 2px !important; 
+    width: 35px !important; 
+    height: 35px !important; 
+    font-size: 0.9rem !important; 
+    opacity: 0.7 !important; 
+    pointer-events: auto !important; 
+  }
+  .carousel-btn.next-btn { 
+    right: 2px !important; 
+    width: 35px !important; 
+    height: 35px !important; 
+    font-size: 0.9rem !important; 
+    opacity: 0.7 !important; 
+    pointer-events: auto !important; 
+  }
 }
 </style>

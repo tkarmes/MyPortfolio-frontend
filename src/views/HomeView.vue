@@ -59,70 +59,70 @@
           <article class="project">
             <img :src="images.tylerFurniture" alt="Furniture Co." class="project-image" @error="handleImageError" />
             <div class="project-content">
-              <h3>Furniture Co.</h3>
+              
               <button @click="openImageModal(images.tylerFurniture)" class="project-link">View Details</button>
             </div>
           </article>
           <article class="project">
             <img :src="images.cedarCreekDrywall" alt="Drywall" class="project-image" @error="handleImageError" />
             <div class="project-content">
-              <h3>Drywall</h3>
+              
               <button @click="openImageModal(images.cedarCreekDrywall)" class="project-link">View Details</button>
             </div>
           </article>
           <article class="project">
             <img :src="images.cedarCreekDrywall2" alt="Drywall 2" class="project-image" @error="handleImageError" />
             <div class="project-content">
-              <h3>Drywall</h3>
+              
               <button @click="openImageModal(images.cedarCreekDrywall2)" class="project-link">View Details</button>
             </div>
           </article>
           <article class="project">
             <img :src="images.martinezBrosIrrigation" alt="Irrigation" class="project-image" @error="handleImageError" />
             <div class="project-content">
-              <h3>Irrigation</h3>
+              
               <button @click="openImageModal(images.martinezBrosIrrigation)" class="project-link">View Details</button>
             </div>
           </article>
           <article class="project">
             <img :src="images.martinezBrosIrrigation2" alt="Irrigation 2" class="project-image" @error="handleImageError" />
             <div class="project-content">
-              <h3>Irrigation</h3>
+              
               <button @click="openImageModal(images.martinezBrosIrrigation2)" class="project-link">View Details</button>
             </div>
           </article>
           <article class="project">
             <img :src="images.lakeviewCoffee" alt="Coffee Co." class="project-image" @error="handleImageError" />
             <div class="project-content">
-              <h3>Coffee Co.</h3>
+              
               <button @click="openImageModal(images.lakeviewCoffee)" class="project-link">View Details</button>
             </div>
           </article>
           <article class="project">
             <img :src="images.lakeviewCoffee2" alt="Coffee Co. 2" class="project-image" @error="handleImageError" />
             <div class="project-content">
-              <h3>Coffee Co.</h3>
+              
               <button @click="openImageModal(images.lakeviewCoffee2)" class="project-link">View Details</button>
             </div>
           </article>
           <article class="project">
             <img :src="images.lakeviewCoffee3" alt="Coffee Co. 3" class="project-image" @error="handleImageError" />
             <div class="project-content">
-              <h3>Coffee Co.</h3>
+              
               <button @click="openImageModal(images.lakeviewCoffee3)" class="project-link">View Details</button>
             </div>
           </article>
           <article class="project">
             <img :src="images.eastTexasTavern" alt="Tavern" class="project-image" @error="handleImageError" />
             <div class="project-content">
-              <h3>Tavern</h3>
+              
               <button @click="openImageModal(images.eastTexasTavern)" class="project-link">View Details</button>
             </div>
           </article>
           <article class="project">
             <img :src="images.eastTexasTavern2" alt="Tavern 2" class="project-image" @error="handleImageError" />
             <div class="project-content">
-              <h3>Tavern</h3>
+              
               <button @click="openImageModal(images.eastTexasTavern2)" class="project-link">View Details</button>
             </div>
           </article>

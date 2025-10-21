@@ -2,8 +2,8 @@
   <div class="contact">
     <h2>Contact Me</h2>
     <p>Reach out to discuss your website or app project!</p>
-    <button @click="copyEmail" class="cta">Copy Email: armeswebsites@gmail.com</button>
-    <p>Or manually copy: <strong>armeswebsites@gmail.com</strong></p>
+    <button @click="copyEmail" class="cta">Copy Email: armes@webrousers.com</button>
+    <p>Or manually copy: <strong>armes@webrousers.com</strong></p>
   </div>
 </template>
 
@@ -11,7 +11,7 @@
 export default {
   methods: {
     async copyEmail() {
-      const email = 'armeswebsites@gmail.com';
+      const email = 'armes@webrousers.com';
       try {
         await navigator.clipboard.writeText(email);
         alert('Email copied to clipboard! Paste it into your email client.');

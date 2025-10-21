@@ -148,7 +148,7 @@
             <span class="contact-icon">📧</span>
             <div>
               <strong>Email:</strong><br>
-              <span class="copyable">armeswebsites@gmail.com</span>
+              <span class="copyable">armes@webrousers.com</span>
             </div>
           </div>
           <div class="contact-item">

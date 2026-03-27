@@ -178,6 +178,7 @@
 </template>
 
 <script>
+import confetti from 'canvas-confetti';
 import tylerFurniture from '@/assets/tyler-furniture.jpg';
 import cedarCreekDrywall from '@/assets/cedar-creek-drywall.jpg';
 import cedarCreekDrywall2 from '@/assets/cedar-creek-drywall-2.jpg';
